@@ -8,8 +8,8 @@
 </head>
 <body>
 	<div>
-		발송자 : <input type="text" id="sender"> 메시지 : <input type="text"
-			id="messageinput">
+		발송자 : <input type="text" id="sender"> 
+		메시지 : <input type="text" id="messageinput">
 	</div>
 	<div>
 		<button type="button" onclick="openSocket();">Open</button>
