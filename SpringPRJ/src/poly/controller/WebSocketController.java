@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@ServerEndpoint(value = "/echo.do")
+@ServerEndpoint(value = "/echo.do") 
 public class WebSocketController {
 
 	private static final List<Session> sessionList = new ArrayList<>();
@@ -39,13 +39,18 @@ public class WebSocketController {
 		log.info("Open session id:" + session.getId());
 		try {
 			final Basic basic = session.getBasicRemote();
-			basic.sendText("Connection Established");
+			basic.sendText("000님 입장하셨습니다.");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 		sessionList.add(session);
 	}
-
+	
+	/*
+     * 모든 사용자에게 메시지를 전달한다.
+     * @param self
+     * @param message
+     */
 	private void sendAllsessionToMessage(Session self, String message) {
 		try {
 			for (Session session : WebSocketController.sessionList) {
