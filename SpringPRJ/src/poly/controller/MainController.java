@@ -16,5 +16,28 @@ public class MainController {
 		
 		return "/index";
 	}
+	
+	@RequestMapping(value="friends")
+	public String friends() {
+		log.info(this.getClass());
+		
+		return "/friends";
+	}
+	
+	@RequestMapping(value="chat")
+	public String chat() {
+		log.info(this.getClass());
+		
+		return "/chat";
+	}
+	
+	@RequestMapping(value="settings")
+	public String settings() {
+		log.info(this.getClass());
+		
+		return "/settings";
+	}
+	
+	
 			
 }
