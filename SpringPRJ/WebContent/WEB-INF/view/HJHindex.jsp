@@ -7,10 +7,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="222205063573-po794u0vdcnr9hrp8avrciunm04ll47p.apps.googleusercontent.com">
-    <meta name="google-signin-clientSecret" content="m0ZLF-nWcMOZH_QHX3G1bTDL">
-<!--     <meta name="google-signin-client_id" content="414977803196-3eja9k8mjngpgivmmh97u08ajvfagbo7.apps.googleusercontent.com">
-    <meta name="google-signin-clientSecret" content="Txmvfi35WclTT_ZHD84R9155"> -->
+    <meta name="google-signin-client_id" content="967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com">
+    <meta name="google-signin-clientSecret" content="ddd_AQLZ7DMwIkjwVeo4UpNi">
     
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   	<script>
@@ -23,6 +21,8 @@
 	  			profile = gauth.currentUser.get().getBasicProfile()
 		    	console.log('name? ' + profile.getName());
 	  			nameTxt.innerHTML = 'Welcome <strong>' +profile.getName() +'</strong> ';
+	  			console.log('moving to chat page');
+	  			window.location.href = 'http://localhost:9000/friends.do';
 	  		}else{
 	  			console.log('not signed');
 	  			loginBtn.value = 'Login';
@@ -36,7 +36,7 @@
 	  		});
 	  		console.log('auth2 Obj');
 	  		window.gauth = gapi.auth2.init({
-		  		client_id: '222205063573-po794u0vdcnr9hrp8avrciunm04ll47p.apps.googleusercontent.com'
+		  		client_id: '967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com'
 		  	})
 		  	gauth.then(function(){
 	  			console.log('gauth2 success');
@@ -86,7 +86,7 @@
     </form>
    
    <footer class="footer-box">
-    <span id='name'></span><input type="button" id="loginBtn" value="checking..." onclick="
+    <span id='name' ></span><input type="button" id="loginBtn" value="checking..." onclick="
   		if (this.value == 'Login') {
   			gauth.signIn({
   				scope: 'https://www.googleapis.com/auth/calendar'

@@ -91,6 +91,7 @@
 			}
 			//웹소켓 객체 만드는 코드
 			ws = new WebSocket("ws://localhost:8080/echo.do");
+			/* ws = new WebSocket("ws://localhost:9000/echo.do"); */ //HJH 테스트시
 			ws.onopen = function(event) {
 				if (event.data === undefined)
 					return;
