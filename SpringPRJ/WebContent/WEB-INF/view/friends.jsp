@@ -98,7 +98,7 @@
       </ul>
     </nav>
     <div id="splash-screen">
-      <i class="fas fa-comment"></i>
+      <i class="fab fa-youtube"></i>
     </div>
 
     <div id="no-mobile">
