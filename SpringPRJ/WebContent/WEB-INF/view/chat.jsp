@@ -1,3 +1,4 @@
+<%@page import="poly.util.DateUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -31,12 +32,12 @@
       </div>
 
       <div class="message-row">
-        <img src="../img/human.jpg" />
+        <img src="../img/basic.gif" />
         <div class="message-row__content">
           <span class="message__author">kkyu</span>
           <div class="message__info">
             <span class="message__bubble">Hi!</span>
-            <span class="message__time">21:27</span>
+            <span class="message__time"><%=DateUtil.getDateTime("HH:mm") %></span>
           </div>
         </div>
       </div>
@@ -45,7 +46,7 @@
         <div class="message-row__content">
           <div class="message__info">
             <span class="message__bubble">Hi nice to meet you!</span>
-            <span class="message__time">21:27</span>
+            <span class="message__time"><%=DateUtil.getDateTime("HH:mm") %></span>
           </div>
         </div>
       </div>
@@ -69,7 +70,7 @@
       <div class="reply__column">
         <input type="text" placeholder="Write a message..." />
         <i class="far fa-smile-wink fa-lg"></i>
-        <button>
+        <button style="background-color:#fae100">
           <i class="fas fa-arrow-up"></i>
         </button>
       </div>

@@ -45,6 +45,7 @@
   cursor: pointer;
   padding: 20px 0px;
   border-radius: 5px;
+  color: white;
 }
 
 #login-form a {

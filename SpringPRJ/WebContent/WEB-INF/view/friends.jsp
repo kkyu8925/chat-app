@@ -10,7 +10,7 @@
   </head>
   <body>
 
-    <header class="screen-header">
+    <header class="screen-header" style="padding-bottom: 5px;">
       <h1 class="screen-header__title">Friends</h1>
       <div class="screen-header__icons">
         <span><i class="fas fa-search fa-lg"></i></span>
@@ -21,42 +21,68 @@
     </header>
 
     <main class="friends-screen">
-      <div class="user-component">
-        <div class="user-component__column">
-          <img
-            src="../img/human.jpg"
-            class="user-component__avatar user-component__avatar--xl"
-          />
-          <div class="user-component__text">
-            <h4 class="user-component__title">KKYU</h4>
-            <!-- <h6 class="user-component__subtitle">this text whatever</h6> -->
-          </div>
-        </div>
-        <div class="user-component__column"></div>
-      </div>
+
       <div class="friends-screen__channel">
-        <div class="friends-screen__channel-header">
-          <span>Channel</span>
-        </div>
         <div class="user-component">
           <div class="user-component__column">
-            <img
-              src="../img/human.jpg"
-              class="user-component__avatar user-component__avatar--sm"
-            />
+            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
             <div class="user-component__text">
               <h4 class="user-component__title user-component__title--not-bold">
-                Channel
+                kkyu
               </h4>
             </div>
           </div>
           <div class="user-component__column">
-              
+          </div>
+        </div>
+      </div>
+      
+      <div class="friends-screen__channel">
+        <div class="user-component">
+          <div class="user-component__column">
+            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+            <div class="user-component__text">
+              <h4 class="user-component__title user-component__title--not-bold">
+                woo
+              </h4>
+            </div>
+          </div>
+          <div class="user-component__column">
+          </div>
+        </div>
+      </div>
+      
+      <div class="friends-screen__channel">
+        <div class="user-component">
+          <div class="user-component__column">
+            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+            <div class="user-component__text">
+              <h4 class="user-component__title user-component__title--not-bold">
+                min
+              </h4>
+            </div>
+          </div>
+          <div class="user-component__column">
+          </div>
+        </div>
+      </div>
+      
+      <div class="friends-screen__channel">
+        <div class="user-component">
+          <div class="user-component__column">
+            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+            <div class="user-component__text">
+              <h4 class="user-component__title user-component__title--not-bold">
+                hong
+              </h4>
+            </div>
+          </div>
+          <div class="user-component__column">
           </div>
         </div>
       </div>
     </main>
-
+    
     <nav class="nav">
       <ul class="nav__list">
         <li class="nav__btn">
