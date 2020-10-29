@@ -78,10 +78,11 @@
       
     </header>
 
-    <form action="/friends.do" method="get" id="login-form">
-      <input name="username" type="text" placeholder="Email or phone number" />
-      <input name="password" type="password" placeholder="Password" />
+    <form action="/user/userLoginProc.do" method="get" id="login-form">
+      <input name="user_email" type="text" placeholder="Email or phone number" />
+      <input name="user_pw" type="password" placeholder="Password" />
       <input type="submit" value="Log In" />
+      <input type="button" value="Sign In" onClick="location.href='/user/userSignin.do'" style='cursor:pointer'>
       <a href="#">Find Account or Password</a>
     </form>
    

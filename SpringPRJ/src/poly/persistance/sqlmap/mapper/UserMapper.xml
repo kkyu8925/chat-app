@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IUserMapper">
+	<select id="getUserInfo" parameterType="UserDTO" resultType="UserDTO">
+		SELECT
+		USER_NAME
+		FROM
+		chat.user
+		WHERE
+		USER_EMAIL=#{user_email} AND USER_PW= #{user_pw}
+	</select>
+
+</mapper>
