@@ -3,6 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
+  	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -108,10 +109,6 @@
       <span>Your screen is too big</span>
     </div>
 
-    <script
-      src="https://kit.fontawesome.com/6478f529f2.js"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
   </body>
 </html>

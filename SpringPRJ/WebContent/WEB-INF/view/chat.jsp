@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,12 +15,12 @@
 			height:100%;
 			width: 0;
 			position: fixed;
-			z-index:2;
+			z-index:3;
 			top: 0;
 			right: 0;
 			background-color: #FFFFFF;
 			overflow-x: hidden;
-			transition:0.7s ease-in-out;
+			transition:0.5s ease-in-out;
 		}
 		.sidenav a {
 			padding: 8px 8px 8px 32px;
@@ -29,8 +30,8 @@
 			display: block;
 			transition: 0.2s ease-in-out;
 		}
-		.sidenav a:hover, .offcanvas a:focus {
-			color: #000;
+		.sidenav a:hover {
+			opacity: 0.4;
 		}
 		.closebtn {
 			position: absolute;
@@ -42,7 +43,7 @@
 
 		.openmenu {
 			cursor:pointer;
-			transition:0.7s ease-in-out;
+			transition:0.5s ease-in-out;
 		}
 		.openmenu > i {
 			font-size: 25px;
@@ -61,6 +62,7 @@
 			font-weight: 600;
 			padding-top: 28px;
 			padding-left:25px;
+			white-space: nowrap;
 		}
 		.chat__reply{
 			width:80%;
@@ -81,8 +83,12 @@
 			z-index:2;
 			top:0;
 			left:0;
-			background-color:red;
+			background-color:black;
+			opacity: 0.3;
 			overflow-x:hidden;
+		}
+		.chat__hidden {
+			display: none;
 		}
 	</style>
   </head>
@@ -103,7 +109,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="sidenav-left">
+		<div class="sidenav-left" onclick='closeNav()'>
 		
 		</div>
 	</nav>
@@ -177,7 +183,6 @@
       <span>Your screen is too big</span>
     </div>
 
-    <script src="https://kit.fontawesome.com/6478f529f2.js" crossorigin="anonymous"></script>
     <!-- websocket javascript -->
 	<script type="text/javascript">
 		var ws;
@@ -218,12 +223,11 @@
 		// 네비게이션 함수
 		function openNav() {
 			document.getElementById('mysidenav').style.width = '80%';
-			document.getElementByClass('sidenav-left').style.width = '20%';
-			
+			document.querySelector('.sidenav-left').style.width = '100%';
 		}
 		function closeNav() {
 			document.getElementById('mysidenav').style.width = '0';
-			document.getElementByClass('sidenav-left').style.width = '0';
+			document.querySelector('.sidenav-left').style.width = '0';
 		}
 	</script>
   </body>
