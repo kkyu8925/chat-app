@@ -80,8 +80,8 @@
     <form action="/user/userLoginProc.do" method="get" id="login-form">
       <input name="user_email" type="text" placeholder="Email or phone number" />
       <input name="user_pw" type="password" placeholder="Password" />
-      <input type="submit" value="Log In" />
-      <input type="button" value="Sign In" onClick="location.href='/user/userSignin.do'" style='cursor:pointer'>
+      <input type="submit" value="Log In"/>
+      <input type="button" value="Sign In" onClick="location.href='/user/userSignin.do'" style="cursor:pointer; background-color: #FFFFFF; border: 2px solid #4285F4; border-radius: 5px;">
       <a href="#">Find Account or Password</a>
     </form>
    
