@@ -97,8 +97,8 @@
         </li>
       </ul>
     </nav>
-    <div id="splash-screen">
-      <i class="fab fa-youtube"></i>
+    <div id="splash-screen" style="background-color:white; color:red;">
+      <i class="fab fa-youtube" ></i>
     </div>
 
     <div id="no-mobile">

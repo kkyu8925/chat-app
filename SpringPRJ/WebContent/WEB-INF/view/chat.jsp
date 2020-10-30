@@ -28,7 +28,7 @@
 
     <main class="main-screen main-chat">
       <div class="chat__timestamp">
-        Tuesday, June 30, 2020
+        <%=DateUtil.getDateTime("EEE, M d, yyyy") %>
       </div>
 
       <div class="message-row">
