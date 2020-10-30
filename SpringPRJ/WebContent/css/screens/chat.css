@@ -91,7 +91,7 @@
 }
 
 .message-row--own .message__bubble {
-  background-color: var(--yellow);
+  background-color: gold;
   border-top-right-radius: 0px;
   border-top-left-radius: 15px;
   margin-right: 0px;

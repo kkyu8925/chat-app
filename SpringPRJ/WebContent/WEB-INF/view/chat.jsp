@@ -21,7 +21,7 @@
         <h1 class="alt-header__title">Hello</h1>
       </div>
       <div class="alt-header__column">
-        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="fas fa-search fa-lg" style='cursor:pointer'></i></span>
         <span><i class="fas fa-bars fa-lg"></i></span>
       </div>
     </header>

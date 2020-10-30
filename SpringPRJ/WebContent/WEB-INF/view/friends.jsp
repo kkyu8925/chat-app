@@ -13,7 +13,7 @@
     <header class="screen-header" style="padding-bottom: 5px;">
       <h1 class="screen-header__title">Friends</h1>
       <div class="screen-header__icons">
-        <span><i class="fas fa-search fa-lg"></i></span>
+        <span><i class="fas fa-search fa-lg" style='cursor:pointer'></i></span>
         <span
           ><a href="/settings.do"><i class="fas fa-cog fa-lg"></i></a
         ></span>
