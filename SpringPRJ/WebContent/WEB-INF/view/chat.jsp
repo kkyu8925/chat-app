@@ -28,7 +28,7 @@
 
     <main class="main-screen main-chat">
       <div class="chat__timestamp">
-        <%=DateUtil.getDateTime("EEE, M d, yyyy") %>
+        <%=DateUtil.getDateTime("M월 d일 E요일, yyyy") %>
       </div>
 
       <div class="message-row">
