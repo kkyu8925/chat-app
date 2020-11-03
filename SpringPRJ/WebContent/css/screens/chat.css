@@ -164,6 +164,7 @@
   outline: none;
 }
 
+/*
 .reply .reply__column:first-child,
 .reply .fa-smile-wink,
 .reply button {
@@ -184,3 +185,4 @@
 .reply:focus-within {
   transform: translateY(80px);
 }
+*/
