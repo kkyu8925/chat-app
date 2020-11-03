@@ -149,7 +149,7 @@
 }
 
 .reply__column button {
-  background-color: var(--yellow);
+  background-color: yellow;
   border: none;
   width: 40px;
   height: 40px;
