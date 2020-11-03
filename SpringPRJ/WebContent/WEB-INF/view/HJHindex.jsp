@@ -3,51 +3,24 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
   <head>
- 	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
+  	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com">
     <meta name="google-signin-clientSecret" content="ddd_AQLZ7DMwIkjwVeo4UpNi">
-    
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-  	<script>
-  		function checkLoginStatus() {
-  			var loginBtn = document.querySelector('#loginBtn');
-  			var nameTxt = document.querySelector('#name');
-	  		if(gauth.isSignedIn.get()){
-	  			console.log('signed');
-	  			loginBtn.value = 'Logout';
-	  			profile = gauth.currentUser.get().getBasicProfile()
-		    	console.log('name? ' + profile.getName());
-	  			nameTxt.innerHTML = 'Welcome <strong>' +profile.getName() +'</strong> ';
-	  			console.log('moving to chat page');
-	  			window.location.href = 'http://localhost:9000/friends.do';
-	  		}else{
-	  			console.log('not signed');
-	  			loginBtn.value = 'Login';
-	  			nameTxt.innerHTML = '';
-	  		}
-		}
-	  	function init() {
-	  		console.log('init auth2');
-			gapi.load('auth2', function() {
-	  	    /* Ready. Make a call to gapi.auth2.init or some other API */
-	  		});
-	  		console.log('auth2 Obj');
-	  		window.gauth = gapi.auth2.init({
-		  		client_id: '967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com'
-		  	})
-		  	gauth.then(function(){
-	  			console.log('gauth2 success');
-	  			checkLoginStatus();
-	  			}, function(){
-	  				console.log('gauth2 fail');
-		  	});
-	  		//console.log('signed? ' + gauth.isSignedIn.get());
-	  	}
-  	</script>
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+  	<script src="https://apis.google.com/js/api:client.js"></script>
+  </head>
+  	
+  	<!-- ---------------------------- -->
+	  	
+ 
+
+  	
+  	<!-- ---------------------------- -->
   	
     <script>
     function onSignIn(googleUser) {
@@ -62,7 +35,7 @@
     <title>Log in</title>
     <style>
       body{
-        height: 100%;
+        height: 50%;
       }
       .footer-box {
       display:flex;
@@ -72,43 +45,67 @@
     </style>
   </head>
   <body>
-    
 
     <header class="welcome-header">
       <h1 class="welcome-header__title">Welcome</h1>
-      
     </header>
 
-    <form action="/friends.do" method="get" id="login-form">
-      <input name="username" type="text" placeholder="Email or phone number" />
-      <input name="password" type="password" placeholder="Password" />
-      <input type="submit" value="Log In" />
+    <form action="/user/userLoginProc.do" method="get" id="login-form">
+      <input name="user_email" type="text" placeholder="Email or phone number" />
+      <input name="user_pw" type="password" placeholder="Password" />
+      <input type="submit" value="Log In"/>
+      <input type="button" value="Sign In" onClick="location.href='/user/userSignin.do'" style="cursor:pointer; background-color: #FFFFFF; border: 1.5px solid #4285F4; border-radius: 5px;">
       <a href="#">Find Account or Password</a>
+    
+	<script>
+		var googleUser = {};
+		var startApp = function() {
+		  gapi.load('auth2', function(){
+		    // Retrieve the singleton for the GoogleAuth library and set up the client.
+		    auth2 = gapi.auth2.init({
+		      client_id: '967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com',
+		      cookiepolicy: 'single_host_origin',
+		      // Request scopes in addition to 'profile' and 'email'
+		      //scope: 'additional_scope'
+		    });
+		    attachSignin(document.getElementById('customBtn'));
+		  });
+		};
+		
+		function attachSignin(element) {
+		  console.log(element.id);
+		  auth2.attachClickHandler(element, {},
+		      function(googleUser) {
+			  	window.location = "/friends.do";
+		        /*document.getElementById('name').innerText = "Signed in: " +
+		            googleUser.getBasicProfile().getName();*/
+		      }, function(error) {
+		        alert(JSON.stringify(error, undefined, 2));
+		      });
+		}	
+		</script>
+		
+		<!-- In the callback, you would hide the gSignInWrapper element on a
+		successful sign in -->
+		<div id="gSignInWrapper">
+		  <div id="customBtn" class="customGPlusSignIn">
+		    <span class="icon"></span>
+		    <span class="buttonText">구글로 로그인</span>
+		  </div>
+		</div>
+		<div id="name"></div>
+		<script>startApp();</script>
+    
     </form>
    
    <footer class="footer-box">
-    <span id='name' ></span><input type="button" id="loginBtn" value="checking..." onclick="
-  		if (this.value == 'Login') {
-  			gauth.signIn({
-  				scope: 'https://www.googleapis.com/auth/calendar'
-  			}).then(function() {
-	    	console.log('gauth.signInPopup');
-	    	checkLoginStatus();
-			})
-		} else {
-  			gauth.signOut().then(function() {
-	    	console.log('gauth.signOutPopup');
-	    	checkLoginStatus();
-			})
-		}
-  	">
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-    </footer>
-
+   </footer>
+	
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-    
+
     <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+    
   </body>
 </html>
