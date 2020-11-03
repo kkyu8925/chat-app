@@ -166,12 +166,12 @@
 	<div id="messages"></div>
     </main>
 
-    <form class="reply">
+    <form class="reply" onsubmit="return false;">
       <div class="reply__column">
         <i class="far fa-plus-square fa-lg"></i>
       </div>
       <div class="reply__column">
-        <input type="text" placeholder="Write a message..." />
+        <input type="text" placeholder="Write a message..."  />
         <i class="far fa-smile-wink fa-lg"></i>
         <button style="background-color:#fae100">
           <i class="fas fa-arrow-up"></i>
