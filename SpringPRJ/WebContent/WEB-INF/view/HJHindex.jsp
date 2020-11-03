@@ -13,15 +13,52 @@
     <script src="https://apis.google.com/js/platform.js" async defer></script>
  	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
   	<script src="https://apis.google.com/js/api:client.js"></script>
+  	<style>
+  		#customBtn {
+			display: inline-block;
+			background: white;
+			color: #444;
+			width: 190px;
+		 	border-radius: 5px;
+			border: thin solid #888;
+			box-shadow: 1px 1px 1px grey;
+			white-space: nowrap;
+		}
+		#customBtn:hover {
+		  cursor: pointer;
+		}
+		span.label {
+		  font-family: serif;
+		  font-weight: normal;
+		}
+		span.icon {
+		  display:flex;
+		  justify-content:center;
+		  margin-top: 25px;
+		  background-color: #4285F4;
+		  cursor: pointer;
+		  padding: 20px 0px;
+		  border-radius: 5px;
+		}
+		span.buttonText {
+		  display: inline-block;
+		  vertical-align: middle;
+		  padding-left: 42px;
+		  padding-right: 42px;
+		  font-size: 14px;
+		  font-weight: bold;
+		  background-color: #4285F4;
+		  font-family: 'Roboto', sans-serif;
+		}
+		.g-signin2 {
+	  		margin: 90px 0px;
+	  		text-align: center;
+	  		display: flex;
+	 	 	flex-direction: column;
+	  		align-items: center;
+		}
+  	</style>
   </head>
-  	
-  	<!-- ---------------------------- -->
-	  	
- 
-
-  	
-  	<!-- ---------------------------- -->
-  	
     <script>
     function onSignIn(googleUser) {
     	  var profile = googleUser.getBasicProfile();

@@ -10,8 +10,6 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="222205063573-po794u0vdcnr9hrp8avrciunm04ll47p.apps.googleusercontent.com">
     <meta name="google-signin-clientSecret" content="m0ZLF-nWcMOZH_QHX3G1bTDL">
-<!--     <meta name="google-signin-client_id" content="414977803196-3eja9k8mjngpgivmmh97u08ajvfagbo7.apps.googleusercontent.com">
-    <meta name="google-signin-clientSecret" content="Txmvfi35WclTT_ZHD84R9155"> -->
     
     <script src="https://apis.google.com/js/platform.js" async defer></script>
   	<script>
