@@ -1,5 +1,11 @@
+<%@page import="poly.util.CmmUtil"%>
+<%@page import="poly.dto.UserDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+    List<UserDTO> rList = (List<UserDTO>)request.getAttribute("rList");
+%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,6 +14,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Friends</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
   <body>
 
@@ -20,68 +27,26 @@
         ></span>
       </div>
     </header>
-
-    <main class="friends-screen">
-
-      <div class="friends-screen__channel">
-        <div class="user-component">
-          <div class="user-component__column">
-            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
-            <div class="user-component__text">
-              <h4 class="user-component__title user-component__title--not-bold">
-                kkyu
-              </h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          </div>
-        </div>
-      </div>
-      
-      <div class="friends-screen__channel">
-        <div class="user-component">
-          <div class="user-component__column">
-            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
-            <div class="user-component__text">
-              <h4 class="user-component__title user-component__title--not-bold">
-                woo
-              </h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          </div>
-        </div>
-      </div>
-      
-      <div class="friends-screen__channel">
-        <div class="user-component">
-          <div class="user-component__column">
-            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
-            <div class="user-component__text">
-              <h4 class="user-component__title user-component__title--not-bold">
-                min
-              </h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          </div>
-        </div>
-      </div>
-      
-      <div class="friends-screen__channel">
-        <div class="user-component">
-          <div class="user-component__column">
-            <img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
-            <div class="user-component__text">
-              <h4 class="user-component__title user-component__title--not-bold">
-                hong
-              </h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          </div>
-        </div>
-      </div>
+		
+    <main id="resContainer" class="friends-screen">
+    	<%
+    		for(UserDTO uDTO : rList){
+    	%>
+		<div class="friends-screen__channel">
+			<div class="user-component">
+				<div class="user-component__column">
+					<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+					<div class="user-component__text">
+						<h4 class="user-component__title user-component__title--not-bold">
+							<%=CmmUtil.nvl(uDTO.getUser_name()) %>
+						</h4>
+					</div>
+				</div>
+				<div class="user-component__column">
+				</div>
+			</div>
+		</div>   
+		<% } %> 	
     </main>
     
     <nav class="nav">
@@ -105,6 +70,52 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-
+	<script>
+	
+	function search(){	
+		//alert("search() 실행");
+		
+		$.ajax({
+			url : '/user/getUserList.do',
+			type : 'post',
+			dataType:'json',
+			success : function(data) { //성공시
+				var resHTML ='';
+				console.log(data);
+				if(data.length==0) {
+					resHTML +=      '<div class="friends-screen__channel">';
+					resHTML +=        '<div class="user-component">';
+					resHTML +=          '<div class="user-component__column">';
+					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+					resHTML +=            '<div class="user-component__text">';
+					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
+					resHTML +=            '</div>';
+					resHTML +=          '</div>';
+					resHTML +=          '<div class="user-component__column">';
+					resHTML +=          '</div>';
+					resHTML +=        '</div>';
+					resHTML +=      '</div>';	
+				}
+				for( var i=0; i<data.length;i++) {
+					resHTML +=      '<div class="friends-screen__channel">';
+					resHTML +=        '<div class="user-component">';
+					resHTML +=          '<div class="user-component__column">';
+					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+					resHTML +=            '<div class="user-component__text">';
+					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
+					resHTML +=            '</div>';
+					resHTML +=          '</div>';
+					resHTML +=          '<div class="user-component__column">';
+					resHTML +=          '</div>';
+					resHTML +=        '</div>';
+					resHTML +=      '</div>';	
+				}
+				$('#resContainer').html(resHTML); //HTML에 결과 추가
+			}
+		})
+	}
+	
+	setInterval(search,30000);
+</script>
   </body>
 </html>

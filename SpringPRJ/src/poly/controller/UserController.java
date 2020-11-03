@@ -1,5 +1,7 @@
 package poly.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,8 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import poly.dto.UserDTO;
 import poly.service.IUserService;
@@ -49,7 +53,7 @@ public class UserController {
 
 		if (rDTO == null) {
 			msg = "로그인 실패";
-			url="/";
+			url = "/";
 		} else {
 			msg = "로그인 성공";
 			url = "/friends.do";
@@ -62,7 +66,7 @@ public class UserController {
 		log.info(this.getClass().getName() + ".user/userLoginProce end");
 		return "/redirect";
 	}
-	
+
 	@RequestMapping(value = "user/userSignin")
 	public String userLogin() {
 		log.info(this.getClass().getName() + ".userLogin start");
@@ -70,5 +74,17 @@ public class UserController {
 		return "/user/userSignin";
 	}
 
+	@RequestMapping(value = "/user/getUserList", method = RequestMethod.POST)
+	@ResponseBody
+	public List<UserDTO> getUserList(HttpServletRequest request) throws Exception {
+
+		log.info(this.getClass().getName() + "./user/getUserList start");
+
+		List<UserDTO> rList = userService.getUserList();
+		log.info("rList size : " + rList.size());
+
+		log.info(this.getClass().getName() + ".user/userSearchList start");
+		return rList;
+	}
 
 }

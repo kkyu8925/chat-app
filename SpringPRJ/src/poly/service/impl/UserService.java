@@ -1,5 +1,7 @@
 package poly.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +19,11 @@ public class UserService implements IUserService {
 	@Override
 	public UserDTO getUserInfo(UserDTO pDTO) {
 		return userMapper.getUserInfo(pDTO);
+	}
+
+	@Override
+	public List<UserDTO> getUserList() {
+		return userMapper.getUserList();
 	}
 
 }

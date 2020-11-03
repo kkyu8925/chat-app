@@ -10,5 +10,13 @@
 		WHERE
 		USER_EMAIL=#{user_email} AND USER_PW= #{user_pw}
 	</select>
+	
+	<!-- ajax -->
+	<select id="getUserList" resultType="UserDTO">
+		SELECT
+		USER_NAME
+		FROM
+		chat.user
+	</select>
 
 </mapper>
