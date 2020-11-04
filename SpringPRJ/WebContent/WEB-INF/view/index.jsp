@@ -76,7 +76,7 @@
       <h1 class="welcome-header__title">Welcome</h1>
     </header>
 
-    <form action="/user/userLoginProc.do" method="get" id="login-form">
+    <form action="/user/userLoginProc.do" method="post" id="login-form">
       <input name="user_email" type="text" placeholder="Email or phone number" />
       <input name="user_pw" type="password" placeholder="Password" />
       <input type="submit" value="Log In"/>
