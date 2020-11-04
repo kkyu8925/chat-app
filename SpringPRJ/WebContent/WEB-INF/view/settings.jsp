@@ -21,7 +21,7 @@
         <h1 class="alt-header__title">Settings</h1>
       </div>
       <div class="alt-header__column">
-        <span><i class="fas fa-search fa-lg" style="cursor:pointer"></i></span>
+        <span><!-- <i class="fas fa-search fa-lg" style="cursor:pointer"></i> --></span>
       </div>
     </header>
 
@@ -36,24 +36,29 @@
         </li>
         <li class="settings__setting">
           <div class="settings__setting-column">
-            <i class="fas fa-flask"></i>
-            <span>Kokoa Lab</span>
-          </div>
-          <div class="settings__setting-column"></div>
-        </li>
-        <li class="settings__setting">
-          <div class="settings__setting-column">
             <i class="fas fa-info-circle"></i>
             <span>Version</span>
           </div>
-          <div class="settings__setting-column">Latest Version</div>
+          <div class="settings__setting-column" style="opacity:0.5;">Latest Version</div>
         </li>
+        <li class="settings__setting" style="cursor:pointer;" onclick="LogOut();">
+          <div class="settings__setting-column">
+         	 <i class="fas fa-sign-out-alt"></i>
+            <span>Log Out</span>
+          </div>
+        </li>
+   
       </ul>
     </main>
 
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-
+	
+	<script>
+	 	function LogOut(){
+	 		location.href = "/user/userLogOut.do";
+	 	}
+	</script>
   </body>
 </html>
