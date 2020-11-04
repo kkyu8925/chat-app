@@ -63,7 +63,13 @@ public class MainController {
 		
 		return "/settings";
 	}
-	
+
+	@RequestMapping(value="find")
+	public String find() throws Exception {
+		log.info(this.getClass());
+		
+		return "/find";
+	}
 	
 			
 }
