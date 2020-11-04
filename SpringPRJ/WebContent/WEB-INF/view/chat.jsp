@@ -46,7 +46,7 @@
 			transition:0.5s ease-in-out;
 		}
 		.openmenu > i {
-			font-size: 25px;
+			font-size: 25.5px;
 		}
 		/* 미디어쿼리 적용 */
 		@media screen and (max-height:450px) {
