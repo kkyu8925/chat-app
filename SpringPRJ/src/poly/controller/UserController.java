@@ -33,7 +33,7 @@ public class UserController {
 	@Resource(name = "UserService")
 	private IUserService userService;
 
-	@RequestMapping(value = "user/userLoginProc")
+	@RequestMapping(value = "user/userLoginProc", method = RequestMethod.POST)
 	public String userLoginProc(HttpServletRequest request, ModelMap model, HttpSession session) throws Exception {
 		log.info(this.getClass().getName() + ".user/userLoginProc start");
 
