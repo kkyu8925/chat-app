@@ -23,7 +23,7 @@
 			transition:0.5s ease-in-out;
 		}
 		.sidenav a {
-			padding: 10px 6px 8px 0px;
+			padding: 10.5px 6px 8px 0px;
 			text-decoration: none;
 			font-size: 25px;
 			color: #2e363e;
