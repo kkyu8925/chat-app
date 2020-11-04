@@ -86,5 +86,23 @@ public class UserController {
 		log.info(this.getClass().getName() + ".user/userSearchList start");
 		return rList;
 	}
+	
+	@RequestMapping(value ="/user/getSearchList.do", method=RequestMethod.POST) 
+	@ResponseBody
+	public List<UserDTO> getSearchList(HttpServletRequest request) throws Exception{
+		
+		log.info(this.getClass().getName() + ".user/getSearchList start");
+		String user_name =CmmUtil.nvl(request.getParameter("name"));
+		log.info("user_name : " +user_name);
+		
+		UserDTO uDTO =new UserDTO();
+		uDTO.setUser_name(user_name);
+		
+		List<UserDTO> uList = userService.getSearchList(uDTO);
+		log.info("uList size :"+uList.size());
+		
+		log.info(this.getClass().getName() + ".user/getSearchList end");
+		return uList;
+	}
 
 }

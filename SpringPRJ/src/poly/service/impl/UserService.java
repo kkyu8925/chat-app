@@ -26,4 +26,9 @@ public class UserService implements IUserService {
 		return userMapper.getUserList();
 	}
 
+	@Override
+	public List<UserDTO> getSearchList(UserDTO uDTO) {
+		return userMapper.getSearchList(uDTO);
+	}
+
 }

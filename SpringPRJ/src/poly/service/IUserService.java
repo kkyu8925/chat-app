@@ -9,5 +9,7 @@ public interface IUserService {
 	UserDTO getUserInfo(UserDTO pDTO);
 
 	List<UserDTO> getUserList();
+
+	List<UserDTO> getSearchList(UserDTO uDTO);
 	
 }

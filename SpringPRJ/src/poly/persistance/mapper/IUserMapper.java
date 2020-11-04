@@ -12,4 +12,6 @@ public interface IUserMapper {
 
 	List<UserDTO> getUserList();
 
+	List<UserDTO> getSearchList(UserDTO uDTO);
+
 }

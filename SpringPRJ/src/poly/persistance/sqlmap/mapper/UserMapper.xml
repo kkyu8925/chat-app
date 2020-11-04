@@ -18,5 +18,15 @@
 		FROM
 		chat.user
 	</select>
+	
+		<!-- ajax -->
+	<select id="getSearchList" parameterType="UserDTO" resultType="UserDTO">
+	 	SELECT
+	 	USER_NAME
+	 	FROM
+	 	chat.user
+	 	WHERE
+	 	USER_NAME LIKE CONCAT('%',#{user_name},'%')
+	</select>
 
 </mapper>

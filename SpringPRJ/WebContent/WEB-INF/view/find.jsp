@@ -3,67 +3,78 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-    List<UserDTO> rList = (List<UserDTO>)request.getAttribute("rList");
-%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
   	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Friends</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>find</title>
+  	<style>
+		.container-1{
+		  width: 250px;
+		  vertical-align: middle;
+		  white-space: nowrap;
+		  position: relative;
+		}
+		.container-1 input#search{
+		  width: 250px;
+		  height: 50px;
+		  font-size: 10pt;
+		  float: left;
+		  color: #63717f;
+		  padding-left: 45px;
+		  -webkit-border-radius: 5px;
+		  -moz-border-radius: 5px;
+		  border-radius: 5px;
+		  border: 1px solid black;
+		}
+		.container-1 .icon{
+		  position: absolute;
+		  top: 50%;
+		  margin-left: 17px;
+		  margin-top: 17px;
+		  z-index: 1;
+		  color: #4f5b66;
+		}
+
+		
+		/* input type=search x버튼 삭제 */
+		input::-ms-clear,
+		input::-ms-reveal{
+			display:none;width:0;height:0;
+		}
+		input::-webkit-search-decoration,
+		input::-webkit-search-cancel-button,
+		input::-webkit-search-results-button,
+		input::-webkit-search-results-decoration{
+			display:none;
+		}
+		/* input type=search x버튼 삭제 */
+		
+		
+	 </style>
   </head>
   <body>
-
-    <header class="screen-header"">
-      <h1 class="screen-header__title">Friends</h1>
-      <div class="screen-header__icons">
-        <span><a href="/find.do"><i class="fas fa-search fa-lg"></i></a></span>
-        <span><a href="/settings.do"><i class="fas fa-cog fa-lg"></i></a></span>
-      </div>
-    </header>
-		
-    <main id="resContainer" class="friends-screen">
-    	<%
-    		for(UserDTO uDTO : rList){
-    	%>
-		<div class="friends-screen__channel">
-			<div class="user-component">
-				<div class="user-component__column">
-					<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
-					<div class="user-component__text">
-						<h4 class="user-component__title user-component__title--not-bold">
-							<%=CmmUtil.nvl(uDTO.getUser_name()) %>
-						</h4>
-					</div>
-				</div>
-				<div class="user-component__column">
-				</div>
-			</div>
-		</div>   
-		<% } %> 	
-    </main>
     
-    <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__btn">
-          <a class="nav__link" href="/friends.do">
-            <i class="fas fa-user fa-2x"></i>
-          </a>
-        </li>
-        <li class="nav__btn">
-          <a class="nav__link" href="/chat.do">
-            <i class="far fa-comment fa-2x"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <div id="splash-screen" style="background-color:white; color:red;">
-      <i class="fab fa-youtube" ></i>
-    </div>
+    <header class="screen-header">
+      	<div class="screen-header__icons">
+        	<span style="margin-left:0px;"><a href="/friends.do"><i class="fas fa-angle-left fa-3x"></i></a></span>
+      	</div>
+      	<div class="box">
+	  		<div class="container-1">
+	    		<span class="icon"><i class="fa fa-search"></i></span>
+	      		<input type="search" id="search" placeholder="Search..." onkeyup="search();"/>
+	      		<span class="icon icon-last"><i class="fas fa-times" style="margin-left: -50px; cursor:pointer;" onclick="deleteVal()"></i></span>
+	  		</div>
+		</div>
+    </header>
+
+    <main id="resContainer" class="friends-screen">
+    </main>
+
 
     <div id="no-mobile">
       <span>Your screen is too big</span>
@@ -72,10 +83,18 @@
 	<script>
 	function search(){	
 		//alert("search() 실행");
+		var user_name = $('#search').val();
+		console.log("user_name: "+user_name);
+		
+		if( $('#user_name').val()==""){
+			$('#user_name').focus();
+			return false;
+		}
 		
 		$.ajax({
-			url : '/user/getUserList.do',
+			url : '/user/getSearchList.do',
 			type : 'post',
+			data : {name :user_name}, // Controller에 보낼  key: value
 			dataType:'json',
 			success : function(data) { //성공시
 				var resHTML ='';
@@ -113,7 +132,10 @@
 		})
 	}
 	
-	setInterval(search,30000);
+	function deleteVal() {
+		$('#search').val('');
+	}
 </script>
   </body>
 </html>
+    
