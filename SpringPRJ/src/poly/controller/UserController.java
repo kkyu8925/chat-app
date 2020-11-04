@@ -104,5 +104,20 @@ public class UserController {
 		log.info(this.getClass().getName() + ".user/getSearchList end");
 		return uList;
 	}
+	
+	@RequestMapping(value = "user/userLogOut")
+	public String logOut(HttpSession session, ModelMap model) throws Exception {
+		log.info(this.getClass().getName() + ".user/logOut start");
+		
+		// session을 비움
+		session.invalidate();
+
+		model.addAttribute("msg", "로그아웃 성공");
+		model.addAttribute("url", "/");
+
+		log.info(this.getClass().getName() + ".user/logOut end");
+		return "/redirect";
+	}
+	
 
 }
