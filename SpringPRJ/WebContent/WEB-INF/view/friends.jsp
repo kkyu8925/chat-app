@@ -1,11 +1,12 @@
 <%@page import="poly.util.CmmUtil"%>
 <%@page import="poly.dto.UserDTO"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
     List<UserDTO> rList = (List<UserDTO>)request.getAttribute("rList");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,6 +70,9 @@
       <span>Your screen is too big</span>
     </div>
     
+	<!-- 로그인 확인 체크 페이지 -->
+	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
+	 
 	<script>
 	function search(){	
 		//alert("search() 실행");

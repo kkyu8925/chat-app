@@ -182,6 +182,9 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
+    
+    <!-- 로그인 확인 체크 페이지 -->
+	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
 
     <!-- websocket javascript -->
 	<script type="text/javascript">
