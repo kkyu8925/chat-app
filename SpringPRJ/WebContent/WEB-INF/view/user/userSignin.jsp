@@ -8,6 +8,38 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
+    <script type="text/javascript">
+	   // 회원가입 유효성 체크
+	   function doRegUserCheck(f) {
+	      if (f.user_name.value == "") {
+	         alert("이름를 입력하세요.");
+	         f.user_name.focus();
+	         return false;
+	      }
+	      if (f.user_email.value == "") {
+		         alert("이메일을 입력하세요.");
+		         f.user_email.focus();
+		         return false;
+		      }
+		
+	      if (f.user_pw.value == "") {
+	         alert("비밀번호를 입력하세요.");
+	         f.user_pw.focus();
+	         return false;
+	      }
+	      if (f.user_pw2.value == "") {
+	         alert("비밀번호확인을 입력하세요.");
+	         f.user_pw2.focus();
+	         return false;
+	      }
+
+	      if (f.user_pw.value !== f.user_pw2.value) {
+	         alert("비밀번호와 비밀번호확인이 같은지 확인하세요.");
+	         f.user_pw.focus();
+	         return false;
+	      }
+	   }
+</script>
     <style>
       body{
         height: 100%;
@@ -24,12 +56,12 @@
       <h1 class="welcome-header__title">Sign in</h1>
     </header>
 
-    <form action="#" method="post" id="login-form">
-    	<input type="text" placeholder="이름"/> 
-    	<input type="email" placeholder="이메일 주소"/>
-		<input type="password" placeholder="비밀번호"/>
+    <form action="/user/insertUserInfo.do" method="post" id="login-form" onsubmit="return doRegUserCheck(this);">
+    	<input type="text" placeholder="이름" name="user_name"/> 
+    	<input type="email" placeholder="이메일 주소" name="user_email"/>
+		<input type="password" placeholder="비밀번호" name="user_pw"/>
 		<div id="log-messages">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</div>
-		<input type="password" placeholder="비밀번호 확인"/>
+		<input type="password" placeholder="비밀번호 확인" name="user_pw2"/>
 		<input type="submit" value="다음"/>
     </form>
 

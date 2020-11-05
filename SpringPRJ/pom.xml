@@ -25,7 +25,14 @@
 	</repositories>
 
 	<dependencies>
-	
+		
+		<!-- 데이터 전송시, 문자 깨지는 현상을 방지하기 위한 BASE64 인코딩 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.10</version>
+		</dependency>
+		
 		<!-- RequestBody 사용시, JSON 변환이 안되는 경우 추가함 -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>

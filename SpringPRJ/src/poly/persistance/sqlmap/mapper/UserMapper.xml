@@ -11,6 +11,32 @@
 		USER_EMAIL=#{user_email} AND USER_PW= #{user_pw}
 	</select>
 	
+	<!-- 회원 가입하기(회원정보 등록) -->
+	<insert id="insertUserInfo" parameterType="UserDTO">
+		INSERT INTO chat.user(
+		USER_NAME,
+		USER_PW,
+		USER_EMAIL,
+		REG_ID,
+		CHG_ID
+		)VALUES(
+		#{user_name},
+		#{user_pw},
+		#{user_email},
+		#{user_name},
+		#{user_name}
+		)
+	</insert>
+
+	<!-- 이메일로 회원가입 중복 방지 -->
+	<select id="getUserExists" parameterType="UserDTO"
+		resultType="UserDTO">
+		SELECT IF(COUNT(1)=0,'N','Y') AS EXISTS_YN
+		FROM
+		chat.user
+		WHERE USER_EMAIL=#{user_email}
+	</select>
+	
 	<!-- ajax -->
 	<select id="getUserList" resultType="UserDTO">
 		SELECT
@@ -19,7 +45,7 @@
 		chat.user
 	</select>
 	
-		<!-- ajax -->
+	<!-- ajax -->
 	<select id="getSearchList" parameterType="UserDTO" resultType="UserDTO">
 	 	SELECT
 	 	USER_NAME
