@@ -17,5 +17,7 @@ public interface IUserService {
 	
 	// 회원가입하기(회원정보 등록)
 	int insertUserInfo(UserDTO pDTO) throws Exception;
+
+	UserDTO emailCheckForAjax(UserDTO pDTO) throws Exception;
 	
 }

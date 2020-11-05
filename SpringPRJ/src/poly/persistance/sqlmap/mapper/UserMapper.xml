@@ -54,5 +54,15 @@
 	 	WHERE
 	 	USER_NAME LIKE CONCAT('%',#{user_name},'%')
 	</select>
+	
+	<!-- ajax -->
+	<select id="emailCheckForAjax" parameterType="UserDTO" resultType="UserDTO">
+		SELECT
+		USER_EMAIL
+		FROM
+		chat.user
+		WHERE
+		USER_EMAIL=#{user_email} 
+	</select>
 
 </mapper>

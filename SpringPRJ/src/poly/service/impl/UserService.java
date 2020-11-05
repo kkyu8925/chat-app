@@ -72,4 +72,9 @@ public class UserService implements IUserService {
 		return res;
 	}
 
+	@Override
+	public UserDTO emailCheckForAjax(UserDTO pDTO) throws Exception {
+		return userMapper.emailCheckForAjax(pDTO);
+	}
+
 }

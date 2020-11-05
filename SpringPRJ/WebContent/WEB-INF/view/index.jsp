@@ -36,6 +36,9 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-
+	
+	<script>
+		
+	</script>
   </body>
 </html>

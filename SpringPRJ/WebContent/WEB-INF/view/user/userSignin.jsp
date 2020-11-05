@@ -5,6 +5,7 @@
   <head>
   	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
@@ -41,13 +42,14 @@
 	   }
 </script>
     <style>
-      body{
-        height: 100%;
-      }
-      #log-messages {
+
+      .log-messages {
       	font-size:13px;
-      	margin-bottom: 3px;
       }
+      .email-log-messages {
+      	display:none;
+      }
+      
     </style>
   </head>
   <body>
@@ -58,9 +60,10 @@
 
     <form action="/user/insertUserInfo.do" method="post" id="login-form" onsubmit="return doRegUserCheck(this);">
     	<input type="text" placeholder="이름" name="user_name"/> 
-    	<input type="email" placeholder="이메일 주소" name="user_email"/>
+    	<input type="email" placeholder="이메일 주소" id="user_email" name="user_email" onkeyup="emailCheck();"/>
+    	<div class="log-messages email-log-messages divEmail" style="color:red;">이미 가입하신 이메일 주소입니다.</div>
 		<input type="password" placeholder="비밀번호" name="user_pw"/>
-		<div id="log-messages">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</div>
+		<div class="log-messages">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</div>
 		<input type="password" placeholder="비밀번호 확인" name="user_pw2"/>
 		<input type="submit" value="다음"/>
     </form>
@@ -68,6 +71,26 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
+	
+	<script>
+		function emailCheck() {
+			$.ajax({
+				type: 'POST',
+				url: '/emailCheckForAjax.do',
+				data : {user_email : $('#user_email').val()},
+				success: function(data) {
+					console.log(data);
+					
+					if(data == "1") {
+						$('.divEmail').addClass('email-log-messages');
+					} else if (data == "0") {
+						$('.divEmail').removeClass('email-log-messages');
+					}
 
+				}
+			})
+		}
+			
+	</script>
   </body>
 </html>

@@ -18,5 +18,6 @@ public interface IUserMapper {
 
 	int insertUserInfo(UserDTO pDTO) throws Exception;
 
+	UserDTO emailCheckForAjax(UserDTO pDTO) throws Exception;
 
 }

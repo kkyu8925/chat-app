@@ -156,7 +156,10 @@ public class UserController {
 		log.info(this.getClass().getName() + ".userLogin end");
 		return "/user/userSignin";
 	}
-
+	
+	/**
+	 * ajax
+	 */
 	@RequestMapping(value = "/user/getUserList", method = RequestMethod.POST)
 	@ResponseBody
 	public List<UserDTO> getUserList(HttpServletRequest request) throws Exception {
@@ -170,6 +173,9 @@ public class UserController {
 		return rList;
 	}
 	
+	/**
+	 * ajax
+	 */
 	@RequestMapping(value ="/user/getSearchList.do", method=RequestMethod.POST) 
 	@ResponseBody
 	public List<UserDTO> getSearchList(HttpServletRequest request) throws Exception{
@@ -186,6 +192,35 @@ public class UserController {
 		
 		log.info(this.getClass().getName() + ".user/getSearchList end");
 		return uList;
+	}
+	
+	/**
+	 * ajax
+	 */
+	@RequestMapping(value ="emailCheckForAjax.do", method=RequestMethod.POST)
+	@ResponseBody
+	public String emailCheckForAjax(HttpServletRequest request) throws Exception{
+		
+		log.info(this.getClass().getName() + ".emailCheckForAjax start");
+		String user_email =CmmUtil.nvl(request.getParameter("user_email"));
+		log.info("user_email : " +user_email);
+		
+		UserDTO pDTO =new UserDTO();
+		String msg= null;
+		
+		// 민감 정보인 이메일은 AES128-CBC로 암호화함
+		pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
+		
+		UserDTO rDTO = userService.emailCheckForAjax(pDTO);
+		
+		if(rDTO == null) {
+			msg = "1"; // 이메일 중복 없음
+		} else {
+			msg = "0"; // 이메일 중복 있음
+		}
+		
+		log.info(this.getClass().getName() + ".emailCheckForAjax end");
+		return msg;
 	}
 	
 	/**
