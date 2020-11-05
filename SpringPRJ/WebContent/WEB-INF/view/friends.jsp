@@ -17,11 +17,15 @@
     <title>Friends</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
-    	/* 화면 높이조절 css start */
+    	/* 화면 조절 css start */
     	html, body, #resContainer{
     		height:100%;
     	}
-    	/* 화면 높이조절 css end */
+    	
+    	body {
+    		overflow-x:hidden;
+    	}
+    	/* 화면 조절 css end */
     </style>
   </head>
   <body>
@@ -29,7 +33,7 @@
     <header class="screen-header"">
       <h1 class="screen-header__title">Friends</h1>
       <div class="screen-header__icons">
-        <span><a href="/find.do"><i class="fas fa-search fa-lg"></i></a></span>
+        <span><i class="fas fa-search fa-lg" onclick='UpFind();'></i></span>
         <span><a href="/settings.do"><i class="fas fa-cog fa-lg"></i></a></span>
       </div>
     </header>
@@ -76,6 +80,9 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
+    
+    <!-- find jsp -->
+    <%@include file="/WEB-INF/view/find.jsp" %>
     
 	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>

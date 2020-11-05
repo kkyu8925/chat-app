@@ -25,7 +25,6 @@
 		.sidenav a {
 			padding: 10.5px 6px 8px 0px;
 			text-decoration: none;
-			font-size: 25px;
 			color: #2e363e;
 			display: block;
 			transition: 0.2s ease-in-out;
@@ -37,16 +36,15 @@
 			position: absolute;
 			top: 15px;
 			right: 25px;
-			font-size: 36px !important;
+			font-size: 37px !important;
 			margin-left: 50px;
 		}
 
 		.openmenu {
-			cursor:pointer;
 			transition:0.5s ease-in-out;
 		}
 		.openmenu > i {
-			font-size: 25.5px;
+			font-size: 25px;
 		}
 		/* 미디어쿼리 적용 */
 		@media screen and (max-height:450px) {
@@ -100,12 +98,12 @@
 			
 			<div class="reply chat__reply">
 				<div class="nav__column" style="padding-left: 0px;">
-					<span><i class="fas fa-sign-out-alt fa-lg" style='cursor:pointer;'></i></span>
+					<span><i class="fas fa-sign-out-alt fa-lg"></i></span>
 				</div>
 				<div class="nav__column">
-					<span><i class="far fa-bell-slash fa-lg" style='cursor:pointer'></i></span>
-					<span><i class="far fa-star fa-lg" style='cursor:pointer'></i></span>
-					<span><i class="fas fa-cog fa-lg" style='cursor:pointer'></i></span>
+					<span><i class="far fa-bell-slash fa-lg"></i></span>
+					<span><i class="far fa-star fa-lg"></i></span>
+					<span><i class="fas fa-cog fa-lg"></i></span>
 				</div>
 			</div>
 		</div>
@@ -124,7 +122,7 @@
         <h1 class="alt-header__title">Hello</h1>
       </div>
       <div class="alt-header__column">
-        <span><i class="fas fa-search fa-lg" style='cursor:pointer'></i></span>
+        <span><i class="fas fa-search fa-lg"></i></span>
         <span class="openmenu" onclick='openNav()'><i class="fas fa-bars fa-lg" aria-hidden="true"></i></span>
       </div>
     </header>

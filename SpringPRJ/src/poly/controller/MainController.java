@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,11 @@ public class MainController {
 	private IUserService userService;
 	
 	@RequestMapping(value="index")
-	public String Index() throws Exception {
+	public String Index(HttpSession session) throws Exception {
 		log.info(this.getClass());
+		
+		// session을 비움
+		session.invalidate();
 		
 		return "/index";
 	}

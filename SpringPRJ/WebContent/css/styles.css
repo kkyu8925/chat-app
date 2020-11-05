@@ -15,6 +15,7 @@
 @import "screens/friends.css";
 @import "screens/settings.css";
 @import "screens/chat.css";
+@import "screens/find.css";
 
 body {
   color: #2e363e;
@@ -23,4 +24,8 @@ body {
 
 .main-screen {
   padding: 0px var(--horizontal-space);
+}
+
+i {
+	cursor: pointer;
 }

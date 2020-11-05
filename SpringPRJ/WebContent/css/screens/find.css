@@ -1,0 +1,55 @@
+/* find css start */
+.container-1 {
+	width: 250px;
+	vertical-align: middle;
+	white-space: nowrap;
+	position: relative;
+}
+
+.container-1 input#search {
+	width: 250px;
+	height: 50px;
+	font-size: 10pt;
+	float: left;
+	color: #63717f;
+	padding-left: 45px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid black;
+}
+
+.container-1 .icon {
+	position: absolute;
+	top: 50%;
+	margin-left: 17px;
+	margin-top: 17px;
+	z-index: 1;
+	color: #4f5b66;
+}
+/* input type=search x버튼 삭제 start */
+input::-ms-clear, input::-ms-reveal {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+input::-webkit-search-decoration, input::-webkit-search-cancel-button,
+input::-webkit-search-results-button, input::-webkit-search-results-decoration {
+	display: none;
+}
+/* input type=search x버튼 삭제 end */
+.con-fixed {
+	top: 100%;
+	position: fixed;
+}
+
+.find-container {
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	position: fixed;
+	transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+}
+/* find css end */
