@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>find</title>
   	<style>
+  		/* find css start */
 		.container-1{
 		  width: 250px;
 		  vertical-align: middle;
@@ -39,9 +40,9 @@
 		  z-index: 1;
 		  color: #4f5b66;
 		}
-
+		/* find css end */
 		
-		/* input type=search x버튼 삭제 */
+		/* input type=search x버튼 삭제 start */
 		input::-ms-clear,
 		input::-ms-reveal{
 			display:none;width:0;height:0;
@@ -52,7 +53,7 @@
 		input::-webkit-search-results-decoration{
 			display:none;
 		}
-		/* input type=search x버튼 삭제 */
+		/* input type=search x버튼 삭제 end */
 		
 		
 	 </style>
@@ -84,61 +85,66 @@
 	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
     
 	<script>
-	function search(){	
-		//alert("search() 실행");
-		var user_name = $('#search').val();
-		console.log("user_name: "+user_name);
-		
-		if( $('#user_name').val()==""){
-			$('#user_name').focus();
-			return false;
-		}
-		
-		$.ajax({
-			url : '/user/getSearchList.do',
-			type : 'post',
-			data : {name :user_name}, // Controller에 보낼  key: value
-			dataType:'json',
-			success : function(data) { //성공시
-				var resHTML ='';
-				console.log(data);
-				if(data.length==0) {
-					resHTML +=      '<div class="friends-screen__channel">';
-					resHTML +=        '<div class="user-component">';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
-					resHTML +=            '<div class="user-component__text">';
-					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
-					resHTML +=            '</div>';
-					resHTML +=          '</div>';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=          '</div>';
-					resHTML +=        '</div>';
-					resHTML +=      '</div>';	
-				}
-				for( var i=0; i<data.length;i++) {
-					resHTML +=      '<div class="friends-screen__channel">';
-					resHTML +=        '<div class="user-component">';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
-					resHTML +=            '<div class="user-component__text">';
-					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
-					resHTML +=            '</div>';
-					resHTML +=          '</div>';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=          '</div>';
-					resHTML +=        '</div>';
-					resHTML +=      '</div>';	
-				}
-				$('#resContainer').html(resHTML); //HTML에 결과 추가
+		// userlist search ajax start 
+		function search(){	
+			//alert("search() 실행");
+			var user_name = $('#search').val();
+			console.log("user_name: "+user_name);
+			
+			if( $('#user_name').val()==""){
+				$('#user_name').focus();
+				return false;
 			}
-		})
-	}
+			
+			$.ajax({
+				url : '/user/getSearchList.do',
+				type : 'post',
+				data : {name :user_name}, // Controller에 보낼  key: value
+				dataType:'json',
+				success : function(data) { //성공시
+					var resHTML ='';
+					console.log(data);
+					
+					if(data.length==0) {
+						resHTML +=      '<div class="friends-screen__channel">';
+						resHTML +=        '<div class="user-component">';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=            '<div class="user-component__text">';
+						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
+						resHTML +=            '</div>';
+						resHTML +=          '</div>';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=          '</div>';
+						resHTML +=        '</div>';
+						resHTML +=      '</div>';	
+					}
+					for( var i=0; i<data.length;i++) {
+						resHTML +=      '<div class="friends-screen__channel">';
+						resHTML +=        '<div class="user-component">';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=            '<div class="user-component__text">';
+						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
+						resHTML +=            '</div>';
+						resHTML +=          '</div>';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=          '</div>';
+						resHTML +=        '</div>';
+						resHTML +=      '</div>';	
+					}
+					$('#resContainer').html(resHTML); //HTML에 결과 추가
+				}
+			})
+		}
+		// userlist search ajax end
 	
-	function deleteVal() {
-		$('#search').val('');
-	}
-</script>
+		// search value delete start
+		function deleteVal() {
+			$('#search').val('');
+		}
+		// search value delete end
+	</script>
   </body>
 </html>
     

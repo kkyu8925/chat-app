@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
     <script type="text/javascript">
-	   // 회원가입 유효성 체크
-	   function doRegUserCheck(f) {
+	   
+    	// 회원가입 유효성 체크 start
+		function doRegUserCheck(f) {
 	      if (f.user_name.value == "") {
 	         alert("이름를 입력하세요.");
 	         f.user_name.focus();
@@ -39,16 +40,19 @@
 	         f.user_pw.focus();
 	         return false;
 	      }
-	   }
+		}
+		// 회원가입 유효성 체크 end
+    	
 </script>
     <style>
-
-      .log-messages {
-      	font-size:13px;
-      }
-      .email-log-messages {
-      	display:none;
-      }
+    	/* sign in ajax css start */
+		.log-messages {
+      		font-size:13px;
+		}
+		.email-log-messages {
+      		display:none;
+		}
+		/* sign in ajax css end */
       
     </style>
   </head>
@@ -73,13 +77,14 @@
     </div>
 	
 	<script>
+		// 이메일 중복확인 메세지 추가  ajax start
 		function emailCheck() {
 			$.ajax({
 				type: 'POST',
 				url: '/emailCheckForAjax.do',
 				data : {user_email : $('#user_email').val()},
 				success: function(data) {
-					console.log(data);
+					//console.log(data);
 					
 					if(data == "1") {
 						$('.divEmail').addClass('email-log-messages');
@@ -90,6 +95,7 @@
 				}
 			})
 		}
+		// 이메일 중복확인 메세지 추가  ajax end
 			
 	</script>
   </body>

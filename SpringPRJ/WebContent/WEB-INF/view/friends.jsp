@@ -17,9 +17,11 @@
     <title>Friends</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
+    	/* 화면 높이조절 css start */
     	html, body, #resContainer{
     		height:100%;
     	}
+    	/* 화면 높이조절 css end */
     </style>
   </head>
   <body>
@@ -79,50 +81,54 @@
 	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
 	 
 	<script>
-	function search(){	
-		//alert("search() 실행");
+		// userList 전체 list 가져오는 ajax 30초마다 실행 start
+		function search(){	
+			//alert("search() 실행");
+			
+			$.ajax({
+				url : '/user/getUserList.do',
+				type : 'post',
+				dataType:'json',
+				
+				success : function(data) { //성공시
+					var resHTML ='';
+					console.log(data);
+					if(data.length==0) {
+						resHTML +=      '<div class="friends-screen__channel">';
+						resHTML +=        '<div class="user-component">';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=            '<div class="user-component__text">';
+						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
+						resHTML +=            '</div>';
+						resHTML +=          '</div>';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=          '</div>';
+						resHTML +=        '</div>';
+						resHTML +=      '</div>';	
+					}
+					
+					for( var i=0; i<data.length;i++) {
+						resHTML +=      '<div class="friends-screen__channel">';
+						resHTML +=        '<div class="user-component">';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=            '<div class="user-component__text">';
+						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
+						resHTML +=            '</div>';
+						resHTML +=          '</div>';
+						resHTML +=          '<div class="user-component__column">';
+						resHTML +=          '</div>';
+						resHTML +=        '</div>';
+						resHTML +=      '</div>';	
+					}
+					$('#resContainer').html(resHTML); //HTML에 결과 추가
+				}
+			})
+		}
 		
-		$.ajax({
-			url : '/user/getUserList.do',
-			type : 'post',
-			dataType:'json',
-			success : function(data) { //성공시
-				var resHTML ='';
-				console.log(data);
-				if(data.length==0) {
-					resHTML +=      '<div class="friends-screen__channel">';
-					resHTML +=        '<div class="user-component">';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
-					resHTML +=            '<div class="user-component__text">';
-					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
-					resHTML +=            '</div>';
-					resHTML +=          '</div>';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=          '</div>';
-					resHTML +=        '</div>';
-					resHTML +=      '</div>';	
-				}
-				for( var i=0; i<data.length;i++) {
-					resHTML +=      '<div class="friends-screen__channel">';
-					resHTML +=        '<div class="user-component">';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=           '<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>';
-					resHTML +=            '<div class="user-component__text">';
-					resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
-					resHTML +=            '</div>';
-					resHTML +=          '</div>';
-					resHTML +=          '<div class="user-component__column">';
-					resHTML +=          '</div>';
-					resHTML +=        '</div>';
-					resHTML +=      '</div>';	
-				}
-				$('#resContainer').html(resHTML); //HTML에 결과 추가
-			}
-		})
-	}
-	
-	setInterval(search,30000);
-</script>
+		setInterval(search,30000);
+		// userList 전체 list 가져오는 ajax 30초마다 실행 end
+	</script>
   </body>
 </html>
