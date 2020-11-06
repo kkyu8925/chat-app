@@ -82,10 +82,10 @@
     </div>
     
     <!-- find jsp -->
-    <%@include file="/WEB-INF/view/find.jsp" %>
+    <%@include file="/WEB-INF/view/include/find.jsp" %>
     
 	<!-- 로그인 확인 체크 페이지 -->
-	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
+	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
 	 
 	<script>
 		// userList 전체 list 가져오는 ajax 30초마다 실행 start

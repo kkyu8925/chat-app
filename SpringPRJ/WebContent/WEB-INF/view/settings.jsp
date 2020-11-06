@@ -56,7 +56,7 @@
     </div>
     
    	<!-- 로그인 확인 체크 페이지 -->
-	<%@include file="/WEB-INF/view/user/logincheck.jsp" %>
+	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
 	
 	<script>
 	 	function LogOut(){
