@@ -78,7 +78,7 @@
 						resHTML +=        '</div>';
 						resHTML +=      '</div>';	
 						
-						if(i>6){
+						if(i>4){
 							resHTML +=     '<div class="friends-screen__channel morefind"><i class="fas fa-ellipsis-v" style="font-size: 30px; cursor:default;"></i></div>';
 							break;
 						}
