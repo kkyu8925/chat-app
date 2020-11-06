@@ -8,6 +8,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Settings</title>
+    <style>
+    	#home-icon {
+    		font-size:25px;
+    	}
+    </style>
   </head>
   <body>
 
@@ -21,6 +26,7 @@
         <h1 class="alt-header__title">Notice</h1>
       </div>
       <div class="alt-header__column">
+      	<i class="fas fa-home" id="home-icon" onclick="location.href='/friends.do'"></i>
       </div>
     </header>
 
@@ -35,10 +41,5 @@
    	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
 	
-	<script>
-	 	function LogOut(){
-	 		location.href = "/user/userLogOut.do";
-	 	}
-	</script>
   </body>
 </html>

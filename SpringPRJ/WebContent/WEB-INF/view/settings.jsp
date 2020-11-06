@@ -27,13 +27,15 @@
 
     <main class="main-screen">
       <ul class="settings-list">
-        <li class="settings__setting">
-          <div class="settings__setting-column">
-            <i class="fas fa-bullhorn"></i>
-            <a href="/notice.do"><span>Notices</span></a>
-          </div>
-          <div class="settings__setting-column"></div>
-        </li>
+      	<a href="/notice.do">
+	        <li class="settings__setting">
+	          <div class="settings__setting-column">
+	            <i class="fas fa-bullhorn"></i>
+	            <span>Notices</span>
+	          </div>
+	          <div class="settings__setting-column"></div>
+	        </li>
+        </a>
         <li class="settings__setting">
           <div class="settings__setting-column">
             <i class="fas fa-info-circle"></i>
@@ -41,10 +43,10 @@
           </div>
           <div class="settings__setting-column" style="opacity:0.5;">Latest Version</div>
         </li>
-        <li class="settings__setting">
+        <li class="settings__setting" style="cursor:pointer;" onclick="LogOut();">
           <div class="settings__setting-column">
          	 <i class="fas fa-sign-out-alt"></i>
-            <span style="cursor:pointer;" onclick="LogOut();">Log Out</span>
+            <span>Log Out</span>
           </div>
         </li>
    

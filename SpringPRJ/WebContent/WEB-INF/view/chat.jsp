@@ -58,7 +58,7 @@
 		.chat_title{
 			font-size:28px;
 			font-weight: 600;
-			padding-top: 28px;
+			padding-top: 33px;
 			padding-left:25px;
 			white-space: nowrap;
 		}
@@ -94,7 +94,7 @@
   	<nav>
   		<div id="mysidenav" class="sidenav">
 			<a href="#" class="closebtn" onclick='closeNav()'>x</a>
-			<div class="chat_title">채팅방 서랍</div>
+			<div class="chat_title">채팅방 유저</div>
 			
 			<div class="reply chat__reply">
 				<div class="nav__column" style="padding-left: 0px;">
