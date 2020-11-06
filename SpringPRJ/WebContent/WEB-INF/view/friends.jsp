@@ -25,6 +25,9 @@
     	body {
     		overflow-x:hidden;
     	}
+    	.friend-mp {
+    		padding-top: 98px;
+    	}
     	/* 화면 조절 css end */
     	
     </style>
@@ -38,7 +41,7 @@
 	    </div>
 	</header>
 		
-    <main id="resContainer" class="friends-screen friend">
+    <main id="resContainer" class="friends-screen friend-mp">
     	<%
     		for(UserDTO uDTO : rList){
     	%>
