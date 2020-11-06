@@ -70,6 +70,7 @@
 		<div class="log-messages">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</div>
 		<input type="password" placeholder="비밀번호 확인" name="user_pw2"/>
 		<input type="submit" value="다음"/>
+		<input type="button" value="이전" onClick="location.href='/index.do'" style="cursor:pointer; background-color: #FFFFFF; border: 1.5px solid #4285F4; border-radius: 5px;"/>
     </form>
 
     <div id="no-mobile">

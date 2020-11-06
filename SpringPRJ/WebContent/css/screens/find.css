@@ -53,3 +53,13 @@ input::-webkit-search-results-button, input::-webkit-search-results-decoration {
 	transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
 }
 /* find css end */
+
+.overflow-srcoll {
+	overflow:hidden;
+	transition-delay: 600ms;
+}
+
+.morefind{
+	display: flex;
+    justify-content: center;
+}

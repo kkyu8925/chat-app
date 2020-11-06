@@ -3,8 +3,7 @@
   height: 100%;
 }
 
-#chat-screen .alt-header,
-#chat-screen .status-bar {
+#chat-screen .alt-header {
   top: 0;
   position: fixed;
   width: 100%;

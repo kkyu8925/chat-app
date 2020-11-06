@@ -2,11 +2,11 @@
     pageEncoding="UTF-8"%>
 		
 <div class="selectfindbody con-fixed">	 
-    <div class="screen-header">
+    <div class="screen-header" style="background-color:white; border: none;">
       	<div class="screen-header__icons">
-        	<span style="margin-left:0px;"><i class="fas fa-angle-left fa-3x" onclick='DownFind();'></i></span>
+        	<span><i class="fas fa-angle-left fa-3x" onclick='DownFind();'></i></span>
       	</div>
-      	<div class="box">
+      	<div class="box" style="margin-right: 25px;">
 	  		<div class="container-1">
 	    		<span class="icon"><i class="fa fa-search" style="cursor:default;"></i></span>
 	      		<input type="search" id="search" placeholder="Search..." onkeyup="searchUser();"/>
@@ -16,17 +16,22 @@
     </div>
 
     <div id="resContainer-find" class="friends-screen">
+
     </div>
 </div>    
+
 	<script>
 		function UpFind() {
 			$('.selectfindbody').removeClass('con-fixed');
 			$('.selectfindbody').addClass('find-container');
+			$('#body-all').addClass('overflow-srcoll');
+			$('#search').focus();
 		}
 		
 		function DownFind() {
 			$('.selectfindbody').addClass('con-fixed');
 			$('.selectfindbody').removeClass('find-container');
+			$('#body-all').removeClass('overflow-srcoll');
 			deleteVal();
 		}
 		
@@ -35,11 +40,6 @@
 			//alert("search() 실행");
 			var user_name = $('#search').val();
 			console.log("user_name: "+user_name);
-			
-			if( $('#user_name').val()==""){
-				$('#user_name').focus();
-				return false;
-			}
 			
 			$.ajax({
 				url : '/user/getSearchList.do',
@@ -77,6 +77,11 @@
 						resHTML +=          '</div>';
 						resHTML +=        '</div>';
 						resHTML +=      '</div>';	
+						
+						if(i>6){
+							resHTML +=     '<div class="friends-screen__channel morefind"><i class="fas fa-ellipsis-v" style="font-size: 30px; cursor:default;"></i></div>';
+							break;
+						}
 					}
 					$('#resContainer-find').html(resHTML); //HTML에 결과 추가
 				}
@@ -87,6 +92,7 @@
 		// search value delete start
 		function deleteVal() {
 			$('#search').val('');
+			$('#search').focus();
 		}
 		// search value delete end
 	</script>

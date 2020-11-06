@@ -26,17 +26,17 @@
     		overflow-x:hidden;
     	}
     	/* 화면 조절 css end */
+    	
     </style>
   </head>
-  <body>
-
-    <header class="screen-header"">
-      <h1 class="screen-header__title">Friends</h1>
-      <div class="screen-header__icons">
-        <span><i class="fas fa-search fa-lg" onclick='UpFind();'></i></span>
-        <span><a href="/settings.do"><i class="fas fa-cog fa-lg"></i></a></span>
-      </div>
-    </header>
+  <body id="body-all">
+	<header class="screen-header">
+		<h1 class="screen-header__title" style="padding-left:25px;">Friends</h1>
+	    <div class="screen-header__icons" style="padding-right:25px;">
+	    	<span><i class="fas fa-search fa-lg" onclick='UpFind();'></i></span>
+	        <span><a href="/settings.do"><i class="fas fa-cog fa-lg"></i></a></span>
+	    </div>
+	</header>
 		
     <main id="resContainer" class="friends-screen">
     	<%

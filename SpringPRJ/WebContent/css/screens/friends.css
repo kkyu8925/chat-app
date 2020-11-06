@@ -14,6 +14,7 @@
 
 .friends-screen {
   padding: 0px var(--horizontal-space);
+  padding-top: 98px;
 }
 
 .friends-screen__channel {
@@ -40,7 +41,6 @@
 }
 
 #splash-screen {
-  background-color: red;
   position: absolute;
   height: 100vh;
   width: 100vw;
