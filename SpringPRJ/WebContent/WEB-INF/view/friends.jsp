@@ -38,7 +38,7 @@
 	    </div>
 	</header>
 		
-    <main id="resContainer" class="friends-screen">
+    <main id="resContainer" class="friends-screen friend">
     	<%
     		for(UserDTO uDTO : rList){
     	%>
