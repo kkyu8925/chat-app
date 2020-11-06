@@ -75,5 +75,13 @@ public class MainController {
 		return "/find";
 	}
 	
-			
+	/* 제작 이준우  공지사항 게시판 리스트 불러오기*/
+	/*@RequestMapping(value="notice")
+	public String notice() throws Exception {
+		log.info(this.getClass());
+		
+		
+		return "/notice";
+	}*/
+	
 }

@@ -13,42 +13,19 @@
 
     <header class="alt-header">
       <div class="alt-header__column">
-        <a href="/friends.do">
+        <a href="/settings.do">
           <i class="fas fa-angle-left fa-3x"></i>
         </a>
       </div>
       <div class="alt-header__column">
-        <h1 class="alt-header__title">Settings</h1>
+        <h1 class="alt-header__title">Notice</h1>
       </div>
       <div class="alt-header__column">
-        <span><!-- <i class="fas fa-search fa-lg" style="cursor:pointer"></i> --></span>
       </div>
     </header>
 
     <main class="main-screen">
-      <ul class="settings-list">
-        <li class="settings__setting">
-          <div class="settings__setting-column">
-            <i class="fas fa-bullhorn"></i>
-            <a href="/notice.do"><span>Notices</span></a>
-          </div>
-          <div class="settings__setting-column"></div>
-        </li>
-        <li class="settings__setting">
-          <div class="settings__setting-column">
-            <i class="fas fa-info-circle"></i>
-            <span>Version</span>
-          </div>
-          <div class="settings__setting-column" style="opacity:0.5;">Latest Version</div>
-        </li>
-        <li class="settings__setting">
-          <div class="settings__setting-column">
-         	 <i class="fas fa-sign-out-alt"></i>
-            <span style="cursor:pointer;" onclick="LogOut();">Log Out</span>
-          </div>
-        </li>
-   
-      </ul>
+
     </main>
 
     <div id="no-mobile">
