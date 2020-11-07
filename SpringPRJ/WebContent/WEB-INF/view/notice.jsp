@@ -31,7 +31,20 @@
     </header>
 
     <main class="main-screen">
-
+        <div class="user-component">
+          <div class="user-component__column">
+            <div class="user-component__text">
+              <h4 class="user-component__title">title</h4>
+              <h6 class="user-component__subtitle">
+               		이준우!!!!!
+              </h6>
+            </div>
+          </div>
+          <div class="user-component__column">
+            <span class="user-component__time">21:22</span>
+          </div>
+        </div>
+        
     </main>
 
     <div id="no-mobile">
