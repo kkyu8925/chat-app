@@ -8,7 +8,7 @@
 		FROM
 		chat.user
 		WHERE
-		USER_EMAIL=#{user_email} AND USER_PW= #{user_pw}
+		USER_EMAIL=#{user_email} AND USER_PW=#{user_pw}
 	</select>
 	
 	<!-- 회원 가입하기(회원정보 등록) -->
@@ -64,5 +64,22 @@
 		WHERE
 		USER_EMAIL=#{user_email} 
 	</select>
-
+	
+	<!-- 비밀번호 변경시 랜덤 비밀번호 업데이트 -->
+	<update id="insertNewPassword" parameterType="UserDTO">
+	UPDATE 
+	chat.user 
+	SET 
+	USER_PW=#{user_pw} 
+	WHERE 
+	USER_EMAIL=#{user_email} 
+	</update>
+	
+		<!-- 비밀번호 찾기 변경시 이메일 이름 확인 -->
+	<select id="getUserExists2" parameterType="UserDTO"	resultType="UserDTO">
+		SELECT IF(COUNT(1)=0,'N','Y') AS EXISTS_YN
+		FROM
+		chat.user
+		WHERE USER_EMAIL=#{user_email} AND USER_NAME=#{user_name}
+	</select>
 </mapper>

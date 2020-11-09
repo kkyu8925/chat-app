@@ -19,5 +19,7 @@ public interface IUserService {
 	int insertUserInfo(UserDTO pDTO) throws Exception;
 
 	UserDTO emailCheckForAjax(UserDTO pDTO) throws Exception;
+
+	int findPasswordProc(UserDTO pDTO) throws Exception;
 	
 }

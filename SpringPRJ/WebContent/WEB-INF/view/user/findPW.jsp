@@ -16,8 +16,9 @@
       <h1 class="welcome-header__title">Find your password</h1>
     </header>
 
-    <form action="" method="post" id="login-form">
+    <form action="/user/findPasswordProc.do" method="post" id="login-form">
       <input name="user_email" type="email" placeholder="Email" />
+      <input name="user_name" type="text" placeholder="Name" />
       <input type="submit" value="전송"/>
       <input type="button" value="이전" onClick="location.href='/index.do'"/>
     </form>
@@ -25,6 +26,10 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
+    
+    <script>
+    	
+    </script>
 	
   </body>
 </html>

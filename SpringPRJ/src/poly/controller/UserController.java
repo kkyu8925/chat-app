@@ -349,5 +349,60 @@ public class UserController {
 		}
 		return "/redirect";
 	}
+	
+	@RequestMapping(value="user/findPasswordProc", method = RequestMethod.POST)
+	public String findPasswordProc(HttpServletRequest request, ModelMap model) throws Exception {
+		
+		log.info(this.getClass().getName() + ".user.findPasswordProc start");
+
+		// 회원가입 결과에 대한 메세지를 전달할 변수
+		String msg = "";
+
+		// 웹(회원정보 입력화면)에서 받는 정보를 저장할 변수
+		UserDTO pDTO = null;
+		
+		try {
+			
+			String user_email = CmmUtil.nvl(request.getParameter("user_email")); // 이메일
+			String user_name = CmmUtil.nvl(request.getParameter("user_name")); // 이름
+			
+			log.info("user_email : " + user_email);
+			log.info("user_name : " + user_name);
+			
+			pDTO = new UserDTO();
+			
+			pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
+			pDTO.setUser_name(user_name);
+			
+			int res = userService.findPasswordProc(pDTO);
+			
+			if (res == 1) {
+				msg = "이메일을 전송하였습니다. 메일을 확인해 주세요.";
+			} else if (res == 2) {
+				msg = "이메일과 이름을 다시 확인해 주세요.";
+			} else {
+				msg = "오류로 인해 실패하였습니다.";
+			}
+			
+		}catch(Exception e) {
+			// 예외로 실패시
+			msg = "실패하였습니다."+e.toString();
+			log.info(e.toString());
+			e.printStackTrace();
+		} finally {
+			
+			log.info(this.getClass().getName() + ".user.findPasswordProc end");
+			
+			// 결과 메세지 전달하기
+			model.addAttribute("msg", msg);
+			model.addAttribute("url", "/");
+
+			// 웹(회원정보 입력화면)으로부터 입력받은 데이터 전달하기
+			model.addAttribute("pDTO", pDTO);
+
+			pDTO = null;
+		}
+		return "/redirect";
+	}
 
 }
