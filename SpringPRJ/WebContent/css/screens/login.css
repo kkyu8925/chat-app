@@ -56,4 +56,23 @@
 	border: 1.5px solid #4285F4; 
 	border-radius: 5px;
 	color: #4285F4;
+	height:65px;
 }
+
+.find-password-container {
+	display:flex;
+	justify-content:space-around;
+}
+
+.line-input{
+    width:200px;
+}
+
+/* sign in ajax css start */
+.log-messages {
+   	font-size:13px;
+}
+.email-log-messages {
+ 	display:none;
+}
+/* sign in ajax css end */

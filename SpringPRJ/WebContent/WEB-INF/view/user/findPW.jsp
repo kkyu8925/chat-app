@@ -8,7 +8,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
-
   </head>
   <body>
 
@@ -19,8 +18,14 @@
     <form action="/user/findPasswordProc.do" method="post" id="login-form">
       <input name="user_email" type="email" placeholder="Email" />
       <input name="user_name" type="text" placeholder="Name" />
-      <input type="submit" value="전송"/>
-      <input type="button" value="이전" onClick="location.href='/index.do'"/>
+      <div class="find-password-container">
+      	<div>
+      		<input type="submit" value="전송" class="line-input"/>
+      	</div>
+      	<div>
+      		<input type="button" value="이전" class="line-input" onClick="location.href='/index.do'"/>
+     	 </div>
+      </div>
     </form>
 
     <div id="no-mobile">

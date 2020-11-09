@@ -43,18 +43,8 @@
 		}
 		// 회원가입 유효성 체크 end
     	
-</script>
-    <style>
-    	/* sign in ajax css start */
-		.log-messages {
-      		font-size:13px;
-		}
-		.email-log-messages {
-      		display:none;
-		}
-		/* sign in ajax css end */
-      
-    </style>
+	</script>
+
   </head>
   <body>
     
