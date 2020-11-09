@@ -25,7 +25,7 @@
     	body {
     		overflow-x:hidden;
     	}
-    	.friend-mp {
+    	.friend-mp ,#resContainer-find{
     		padding-top: 98px;
     	}
     	/* 화면 조절 css end */
