@@ -45,10 +45,15 @@
 }
 
 #login-form a {
-  text-align: center;
   text-decoration: none;
-  color: inherit;
+  color: #4285F4;
   font-size: 13px;
 }
 
-
+#login-form input[type="button"] {
+	cursor:pointer; 
+	background-color: #FFFFFF; 
+	border: 1.5px solid #4285F4; 
+	border-radius: 5px;
+	color: #4285F4;
+}

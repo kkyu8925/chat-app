@@ -84,4 +84,11 @@ public class MainController {
 		return "/notice";
 	}
 	
+	@RequestMapping(value="findPW")
+	public String findPW() throws Exception {
+		log.info(this.getClass());
+		
+		return "/user/findPW";
+	}
+	
 }

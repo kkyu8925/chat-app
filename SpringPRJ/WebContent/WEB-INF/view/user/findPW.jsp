@@ -7,20 +7,19 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Log in</title>
+    <title>Sign in</title>
+
   </head>
   <body>
 
     <header class="welcome-header">
-      <h1 class="welcome-header__title">Welcome</h1>
+      <h1 class="welcome-header__title">Find your password</h1>
     </header>
 
-    <form action="/user/userLoginProc.do" method="post" id="login-form">
+    <form action="" method="post" id="login-form">
       <input name="user_email" type="email" placeholder="Email" />
-      <input name="user_pw" type="password" placeholder="Password" />
-      <input type="submit" value="Log In"/>
-      <input type="button" value="Sign In" onClick="location.href='/user/userSignin.do'" style="cursor:pointer; background-color: #FFFFFF; border: 1.5px solid #4285F4; border-radius: 5px;">
-      <a href="/findPW.do">Forgot email?</a>
+      <input type="submit" value="전송"/>
+      <input type="button" value="이전" onClick="location.href='/index.do'"/>
     </form>
 
     <div id="no-mobile">
