@@ -34,7 +34,8 @@
 		SELECT IF(COUNT(1)=0,'N','Y') AS EXISTS_YN
 		FROM
 		chat.user
-		WHERE USER_EMAIL=#{user_email}
+		WHERE 
+		USER_EMAIL=#{user_email}
 	</select>
 	
 	<!-- ajax -->
@@ -43,6 +44,8 @@
 		USER_NAME
 		FROM
 		chat.user
+		ORDER BY
+		USER_NAME
 	</select>
 	
 	<!-- ajax -->
@@ -53,6 +56,8 @@
 	 	chat.user
 	 	WHERE
 	 	USER_NAME LIKE CONCAT('%',#{user_name},'%')
+	 	ORDER BY
+		USER_NAME
 	</select>
 	
 	<!-- ajax -->
