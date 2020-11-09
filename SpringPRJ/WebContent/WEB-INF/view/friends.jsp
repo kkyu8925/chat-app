@@ -21,6 +21,10 @@
     	html, body, #resContainer{
     		height:100%;
     	}
+    	#resContainer{
+    		padding-bottom: 98px;
+    		margin-bottom: 98px;
+    	}
     	
     	body {
     		overflow-x:hidden;
