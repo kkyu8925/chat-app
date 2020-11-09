@@ -21,16 +21,14 @@
     	html, body, #resContainer{
     		height:100%;
     	}
-    	#resContainer{
-    		padding-bottom: 98px;
-    		margin-bottom: 98px;
-    	}
-    	
     	body {
     		overflow-x:hidden;
     	}
     	.friend-mp ,#resContainer-find{
     		padding-top: 98px;
+    	}
+    	.friends-screen__channel:last-child{
+    		margin-bottom:80px;
     	}
     	/* 화면 조절 css end */
     	
