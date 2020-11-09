@@ -28,7 +28,7 @@ public class MainController {
 		log.info(this.getClass());
 		
 		// session을 비움
-		session.invalidate();
+		//session.invalidate();
 		
 		return "/index";
 	}

@@ -24,8 +24,8 @@
     	body {
     		overflow-x:hidden;
     	}
-    	.friend-mp ,#resContainer-find{
-    		padding-top: 98px;
+    	.friends-screen__channel:first-child{
+    		padding-top: 115px;
     	}
     	.friends-screen__channel:last-child{
     		margin-bottom:80px;
