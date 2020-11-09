@@ -12,7 +12,11 @@
     	.settings__setting:hover {
     		background-color: #f9f9fa;
     	}
-
+    	
+    	#non-hover:hover {
+    		background-color: white;
+    	}
+		
     </style>
   </head>
   <body>
@@ -39,7 +43,9 @@
 	            <i class="far fa-id-card"></i>
 	            <span>Personal Info</span>
 	          </div>
-	          <div class="settings__setting-column"></div>
+	          <div class="settings__setting-column">
+	          	<i class="fas fa-angle-right"></i>
+	          </div>
 	        </li>
         </a>
       	<a href="/notice.do">
@@ -48,10 +54,12 @@
 	            <i class="fas fa-bullhorn"></i>
 	            <span>Notices</span>
 	          </div>
-	          <div class="settings__setting-column"></div>
+	          <div class="settings__setting-column">
+	          	<i class="fas fa-angle-right"></i>
+	          </div>
 	        </li>
         </a>
-        <li class="settings__setting">
+        <li class="settings__setting" id="non-hover">
           <div class="settings__setting-column">
             <i class="fas fa-info-circle" style="cursor:default;"></i>
             <span>Version</span>

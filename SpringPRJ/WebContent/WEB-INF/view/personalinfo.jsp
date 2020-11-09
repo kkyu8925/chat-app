@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String SS_USER_NAME = (String)session.getAttribute("SS_USER_NAME");
+	String SS_USER_NO = (String)session.getAttribute("SS_USER_NO");
+%>    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +15,16 @@
     <style>
     	.settings__setting:hover {
     		background-color: #f9f9fa;
+    		cursor:pointer;
+    	}
+    	
+    	.settings__setting i {
+    		margin-left:10px;
+    	}
+    	
+    	.personal-text{
+    		font-size:18px;
+    		opacity: 0.5;
     	}
     </style>
   </head>
@@ -23,7 +37,7 @@
         </a>
       </div>
       <div class="alt-header__column">
-        <h1 class="alt-header__title">Settings</h1>
+        <h1 class="alt-header__title">Account</h1>
       </div>
       <div class="alt-header__column">
         <span><i class="fas fa-home fa-2x" onclick="location.href='/friends.do'"></i></span>
@@ -32,18 +46,44 @@
 
     <main class="main-screen">
       <ul class="settings-list">
-      	<a href="#">
-	        <li class="settings__setting">
-	          <div class="settings__setting-column">
-	            <i class="far fa-id-card"></i>
-	            <span>image</span>
-	          </div>
-	          <div class="settings__setting-column">
-	          	
-	          </div>
-	        </li>
-        </a>
-   
+	  	<li class="settings__setting">
+	    	<div class="settings__setting-column">
+	        	<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+	    	</div>
+	        <div class="settings__setting-column">
+	          	<i class="fas fa-angle-right"></i>
+	    	</div>
+	  	</li>
+	  	
+	  	<li class="settings__setting">
+	    	<div class="settings__setting-column">
+	        	<span>Email</span>
+	    	</div>
+	        <div class="settings__setting-column">
+	        	<span class="personal-text"><%=SS_USER_NAME %></span>
+	          	<i class="fas fa-angle-right"></i>
+	    	</div>
+	  	</li>	  	
+	  	
+	  	<li class="settings__setting">
+	    	<div class="settings__setting-column">
+	        	<span>Name</span>
+	    	</div>
+	        <div class="settings__setting-column">
+	        	<span class="personal-text">Name</span>
+	          	<i class="fas fa-angle-right"></i>
+	    	</div>
+	  	</li>
+
+	  	<li class="settings__setting">
+	    	<div class="settings__setting-column">
+	        	<span>Password</span>
+	    	</div>
+	        <div class="settings__setting-column">
+	          	<i class="fas fa-angle-right"></i>
+	    	</div>
+	  	</li>	  	
+	  	
       </ul>
     </main>
 
@@ -53,6 +93,10 @@
     
    	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
+	
+	<script>
+		function get 
+	</script>
 	
   </body>
 </html>

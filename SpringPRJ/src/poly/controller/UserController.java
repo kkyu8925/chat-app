@@ -125,6 +125,7 @@ public class UserController {
 				 * Session 단어에서 SS.
 				 */
 				session.setAttribute("SS_USER_NAME", rDTO.getUser_name());
+				session.setAttribute("SS_USER_NO", rDTO.getUser_no());
 				msg="로그인 성공";
 				url="/friends.do";
 			}
