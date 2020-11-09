@@ -91,4 +91,11 @@ public class MainController {
 		return "/user/findPW";
 	}
 	
+	@RequestMapping(value="personalinfo")
+	public String personalinfo() throws Exception {
+		log.info(this.getClass());
+		
+		return "/personalinfo";
+	}
+	
 }

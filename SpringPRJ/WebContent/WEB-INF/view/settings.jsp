@@ -12,6 +12,7 @@
     	.settings__setting:hover {
     		background-color: #f9f9fa;
     	}
+
     </style>
   </head>
   <body>
@@ -32,7 +33,7 @@
 
     <main class="main-screen">
       <ul class="settings-list">
-      	<a href="#">
+      	<a href="/personalinfo.do">
 	        <li class="settings__setting">
 	          <div class="settings__setting-column">
 	            <i class="far fa-id-card"></i>
@@ -52,7 +53,7 @@
         </a>
         <li class="settings__setting">
           <div class="settings__setting-column">
-            <i class="fas fa-info-circle"></i>
+            <i class="fas fa-info-circle" style="cursor:default;"></i>
             <span>Version</span>
           </div>
           <div class="settings__setting-column" style="opacity:0.5;">Latest Version</div>

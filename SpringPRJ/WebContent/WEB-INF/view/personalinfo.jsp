@@ -7,10 +7,10 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
+    <title>Personal-info</title>
     <style>
-    	#home-icon {
-    		font-size:25px;
+    	.settings__setting:hover {
+    		background-color: #f9f9fa;
     	}
     </style>
   </head>
@@ -23,28 +23,28 @@
         </a>
       </div>
       <div class="alt-header__column">
-        <h1 class="alt-header__title">Notice</h1>
+        <h1 class="alt-header__title">Settings</h1>
       </div>
       <div class="alt-header__column">
-      	<i class="fas fa-home fa-2x" onclick="location.href='/friends.do'"></i>
+        <span><i class="fas fa-home fa-2x" onclick="location.href='/friends.do'"></i></span>
       </div>
     </header>
 
     <main class="main-screen">
-        <div class="user-component">
-          <div class="user-component__column">
-            <div class="user-component__text">
-              <h4 class="user-component__title">title</h4>
-              <h6 class="user-component__subtitle">
-               		이준우!!!!!
-              </h6>
-            </div>
-          </div>
-          <div class="user-component__column">
-            <span class="user-component__time">21:22</span>
-          </div>
-        </div>
-        
+      <ul class="settings-list">
+      	<a href="#">
+	        <li class="settings__setting">
+	          <div class="settings__setting-column">
+	            <i class="far fa-id-card"></i>
+	            <span>image</span>
+	          </div>
+	          <div class="settings__setting-column">
+	          	
+	          </div>
+	        </li>
+        </a>
+   
+      </ul>
     </main>
 
     <div id="no-mobile">
