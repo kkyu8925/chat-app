@@ -55,34 +55,40 @@
 	    	</div>
 	  	</li>
 	  	
-	  	<li class="settings__setting">
-	    	<div class="settings__setting-column">
-	        	<span>Email</span>
-	    	</div>
-	        <div class="settings__setting-column">
-	        	<span class="personal-text"><%=SS_USER_NAME %></span>
-	          	<i class="fas fa-angle-right"></i>
-	    	</div>
-	  	</li>	  	
+	  	<a href="/user/chgEmail.do">
+		  	<li class="settings__setting">
+		    	<div class="settings__setting-column">
+		        	<span>Email</span>
+		    	</div>
+		        <div class="settings__setting-column">
+		        	<span class="personal-text">email@email.com</span>
+		          	<i class="fas fa-angle-right"></i>
+		    	</div>
+		  	</li>	 
+	  	</a> 	
 	  	
-	  	<li class="settings__setting">
-	    	<div class="settings__setting-column">
-	        	<span>Name</span>
-	    	</div>
-	        <div class="settings__setting-column">
-	        	<span class="personal-text">Name</span>
-	          	<i class="fas fa-angle-right"></i>
-	    	</div>
-	  	</li>
-
-	  	<li class="settings__setting">
-	    	<div class="settings__setting-column">
-	        	<span>Password</span>
-	    	</div>
-	        <div class="settings__setting-column">
-	          	<i class="fas fa-angle-right"></i>
-	    	</div>
-	  	</li>	  	
+	  	<a href="/user/chgName.do">
+		  	<li class="settings__setting">
+		    	<div class="settings__setting-column">
+		        	<span>Name</span>
+		    	</div>
+		        <div class="settings__setting-column">
+		        	<span class="personal-text"><%=SS_USER_NAME %></span>
+		          	<i class="fas fa-angle-right"></i>
+		    	</div>
+		  	</li>
+	  	</a>
+		
+		<a href="/user/chgPW.do">
+		  	<li class="settings__setting">
+		    	<div class="settings__setting-column">
+		        	<span>Password</span>
+		    	</div>
+		        <div class="settings__setting-column">
+		          	<i class="fas fa-angle-right"></i>
+		    	</div>
+		  	</li>
+	  	</a>	  	
 	  	
       </ul>
     </main>
@@ -93,10 +99,6 @@
     
    	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
-	
-	<script>
-		function get 
-	</script>
 	
   </body>
 </html>

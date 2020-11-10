@@ -95,7 +95,27 @@ public class MainController {
 	public String personalinfo() throws Exception {
 		log.info(this.getClass());
 		
-		return "/personalinfo";
+		return "personalinfo";
 	}
 	
+	@RequestMapping(value="user/chgName")
+	public String chgName() throws Exception {
+		log.info(this.getClass());
+		
+		return "/user/chgName";
+	}
+	
+	@RequestMapping(value="user/chgEmail")
+	public String chgEmail() throws Exception {
+		log.info(this.getClass());
+		
+		return "/user/chgEmail";
+	}
+	
+	@RequestMapping(value="user/chgPW")
+	public String chgPW() throws Exception {
+		log.info(this.getClass());
+		
+		return "/user/chgPW";
+	}
 }
