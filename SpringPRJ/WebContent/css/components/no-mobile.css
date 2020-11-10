@@ -9,6 +9,7 @@
   align-items: center;
   font-size: 32px;
   top: 0;
+  left:0;
 }
 
 @media screen and (max-width: 650px) {
