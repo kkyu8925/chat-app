@@ -232,7 +232,8 @@ public class UserController {
 		log.info(this.getClass().getName() + ".user/logOut start");
 		
 		// session을 비움
-		session.invalidate();
+		session.removeAttribute("SS_USER_NAME");
+		session.removeAttribute("SS_USER_NO");
 
 		model.addAttribute("msg", "로그아웃 성공");
 		model.addAttribute("url", "/");
