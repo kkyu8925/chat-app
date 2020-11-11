@@ -71,7 +71,7 @@
           </a>
         </li>
         <li class="nav__btn">
-          <a class="nav__link" href="/chat.do">
+          <a class="nav__link" href="/chats.do">
             <i class="far fa-comment fa-2x"></i>
           </a>
         </li>

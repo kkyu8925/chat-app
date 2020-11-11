@@ -36,7 +36,7 @@
     
     <header class="alt-header">
       <div class="alt-header__column">
-        <a href="/friends.do">
+        <a href="/chats.do">
           <i class="fas fa-angle-left fa-3x"></i>
         </a>
       </div>

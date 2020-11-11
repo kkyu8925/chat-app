@@ -118,4 +118,11 @@ public class MainController {
 		
 		return "/user/chgPW";
 	}
+	
+	@RequestMapping(value="chats")
+	public String chats() throws Exception {
+		log.info(this.getClass());
+		
+		return "/chats";
+	}
 }
