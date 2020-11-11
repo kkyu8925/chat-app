@@ -13,27 +13,25 @@
   <body>
 
     <div class="form">
-
-      <form action="/user/findPasswordProc.do" method="post" id="login-form">
-          <div class="text-input">
-            <label for="username">Username</label>
-            <input type="text" name="user_name" />
-            <span class="separator"> </span>
-          </div>
-          
-          <div class="text-input">
-            <label for="username">Email</label>
-            <input type="email" name="user_email" id="user_email" onkeyup="emailCheck();"/>
-            <span class="separator"> </span>
-          </div>  
-        
-          <div class="form-bottom">
-            <input type="submit" value="다음"  />
-            <input type="button" value="이전" onClick="location.href='/index.do'" />
-          </div>
-        </form>  
-          
-        </div>
+     	 <form action="/user/findPasswordProc.do" method="post" id="login-form">
+	          <div class="text-input">
+	            <label for="username">Username</label>
+	            <input type="text" name="user_name" />
+	            <span class="separator"> </span>
+	          </div>
+	          
+	          <div class="text-input">
+	            <label for="username">Email</label>
+	            <input type="email" name="user_email" id="user_email" onkeyup="emailCheck();"/>
+	            <span class="separator"> </span>
+	          </div>  
+	        
+	          <div class="form-bottom">
+	            <input type="submit" value="다음"  />
+	            <input type="button" value="이전" onClick="location.href='/index.do'" />
+	          </div>
+    	</form>  
+	</div>
 
     <div id="no-mobile">
       <span>Your screen is too big</span>

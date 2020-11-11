@@ -16,7 +16,6 @@
     	#non-hover:hover {
     		background-color: white;
     	}
-		
     </style>
   </head>
   <body>
@@ -72,7 +71,6 @@
             <span>Log Out</span>
           </div>
         </li>
-   
       </ul>
     </main>
 

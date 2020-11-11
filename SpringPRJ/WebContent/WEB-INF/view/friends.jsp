@@ -6,7 +6,6 @@
 <%
     List<UserDTO> rList = (List<UserDTO>)request.getAttribute("rList");
 %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings</title>
+    <title>Notice</title>
     <style>
     	#home-icon {
     		font-size:25px;
@@ -44,7 +44,6 @@
             <span class="user-component__time">21:22</span>
           </div>
         </div>
-        
     </main>
 
     <div id="no-mobile">

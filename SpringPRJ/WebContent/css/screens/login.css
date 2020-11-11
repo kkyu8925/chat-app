@@ -106,5 +106,8 @@ body {
 .email-log-messages {
  	display:none;
 }
+.divEmail{
+	color:tomato;
+}
 /* sign in ajax css end */
 

@@ -15,6 +15,7 @@
 @import "screens/settings.css";
 @import "screens/chat.css";
 @import "screens/find.css";
+@import "screens/chgform.css";
 
 body {
   color: #2e363e;

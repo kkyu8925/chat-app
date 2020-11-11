@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account</title>
     <style>
-    	.settings__setting:hover {
+    	.settings__setting-hover:hover {
     		background-color: #f9f9fa;
     		cursor:pointer;
     	}
@@ -25,6 +25,10 @@
     	.personal-text{
     		font-size:18px;
     		opacity: 0.5;
+    	}
+    	
+    	.personal-text-email {
+    		margin-right: 43px;
     	}
     </style>
   </head>
@@ -46,7 +50,7 @@
 
     <main class="main-screen">
       <ul class="settings-list">
-	  	<li class="settings__setting">
+	  	<li class="settings__setting settings__setting-hover">
 	    	<div class="settings__setting-column">
 	        	<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
 	    	</div>
@@ -55,20 +59,17 @@
 	    	</div>
 	  	</li>
 	  	
-	  	<a href="/user/chgEmail.do">
 		  	<li class="settings__setting">
 		    	<div class="settings__setting-column">
 		        	<span>Email</span>
 		    	</div>
 		        <div class="settings__setting-column">
-		        	<span class="personal-text">email@email.com</span>
-		          	<i class="fas fa-angle-right"></i>
+		        	<span class="personal-text personal-text-email">email@email.com</span>
 		    	</div>
 		  	</li>	 
-	  	</a> 	
 	  	
 	  	<a href="/user/chgName.do">
-		  	<li class="settings__setting">
+		  	<li class="settings__setting settings__setting-hover">
 		    	<div class="settings__setting-column">
 		        	<span>Name</span>
 		    	</div>
@@ -80,7 +81,7 @@
 	  	</a>
 		
 		<a href="/user/chgPW.do">
-		  	<li class="settings__setting">
+		  	<li class="settings__setting settings__setting-hover">
 		    	<div class="settings__setting-column">
 		        	<span>Password</span>
 		    	</div>

@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../css/screens/login.css">
     <link rel="stylesheet" href="../css/components/no-mobile.css">
     <script type="text/javascript">
-	   
     	// 회원가입 유효성 체크 start
 		function doRegUserCheck(f) {
 	      if (f.user_name.value == "") {
@@ -42,13 +41,11 @@
 	      }
 		}
 		// 회원가입 유효성 체크 end
-    	
 	</script>
 </head>
 <body>
     <div class="form">
-
-      <form action="/user/insertUserInfo.do" method="post" id="login-form" onsubmit="return doRegUserCheck(this);">
+      	<form action="/user/insertUserInfo.do" method="post" id="login-form" onsubmit="return doRegUserCheck(this);">
           <div class="text-input">
             <label for="username">Username</label>
             <input type="text" name="user_name" />
@@ -59,7 +56,7 @@
             <label for="username">Email</label>
             <input type="email" name="user_email" id="user_email" onkeyup="emailCheck();"/>
             <span class="separator"> </span>
-            <div class="log-messages email-log-messages divEmail" style="color:tomato;">이미 가입하신 이메일 주소입니다.</div>
+            <div class="log-messages email-log-messages divEmail">이미 가입하신 이메일 주소입니다.</div>
           </div>  
           
           <div class="text-input">
@@ -80,8 +77,7 @@
             <input type="button" value="이전" onClick="location.href='/index.do'" />
           </div>
         </form>  
-          
-        </div>
+	</div>
 
         <div id="no-mobile">
           <span>Your screen is too big</span>
