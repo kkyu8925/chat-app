@@ -31,3 +31,25 @@
   margin-left: 25px;
   margin-right: 8.5px;
 }
+
+.alt-header__search-container{
+	position: relative;
+}
+
+.alt-header__search-input{
+	width: 250px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    top: -12px;
+    left: -236px;
+    padding-left: 20px;
+    font: inherit;
+}
+
+.alt-header__search-icon-div{
+	position: absolute;
+    top: 0px;
+    left: -22px;
+}
+}

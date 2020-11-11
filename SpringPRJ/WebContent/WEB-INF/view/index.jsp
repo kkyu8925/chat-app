@@ -9,14 +9,6 @@
     <link rel="stylesheet" href="../css/ryan-style.css">
     <link rel="stylesheet" href="../css/components/no-mobile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-    	#login-form a{
-		  	text-decoration: none;
-		  	color: #141518;
-		  	font-size: 13px;
-    		margin-top: 10px;
-    	}
-    </style>
 </head>
 <body>
     <form action="/user/userLoginProc.do" method="post" id="login-form">

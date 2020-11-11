@@ -9,6 +9,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
 		/* 사이드바 스타일 */
 		.sidenav {
@@ -118,11 +119,14 @@
           <i class="fas fa-angle-left fa-3x"></i>
         </a>
       </div>
-      <div class="alt-header__column">
+      <div class="alt-header__column text-hello">
         <h1 class="alt-header__title">Hello</h1>
       </div>
       <div class="alt-header__column">
-        <span><i class="fas fa-search fa-lg"></i></span>
+      	<div class="alt-header__search-container">
+      		<input type="search" class="alt-header__search-input" style="display:none"/>
+        	<div class="alt-header__search-icon-div searching-btn" onclick="searching();"><i class="fas fa-search fa-lg"></i></div>
+        </div>
         <span class="openmenu" onclick='openNav()'><i class="fas fa-bars fa-lg" aria-hidden="true"></i></span>
       </div>
     </header>
@@ -230,6 +234,22 @@
 			document.getElementById('mysidenav').style.width = '0';
 			document.querySelector('.sidenav-left').style.width = '0';
 		}
+		
+		// search 함수
+		function searching(){
+			if($('.text-hello').css('display') == 'none'){
+				$('.text-hello').show();
+			}else{
+				$('.text-hello').hide();
+			}
+			
+			if($('.alt-header__search-input').css('display') == 'none'){
+				$('.alt-header__search-input').show();
+			}else{
+				$('.alt-header__search-input').hide();
+			}
+		}
+
 	</script>
   </body>
 </html>

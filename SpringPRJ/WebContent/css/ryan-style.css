@@ -4,7 +4,7 @@ body {
 }
 
 form {
-  width: 320px;
+  width: 310px;
   padding: 60px 25px;
   margin: 50px auto;
   background: #f8d348;
@@ -102,3 +102,10 @@ input {
 .look-away.playing.down .muzzle {
   animation-name: lookaway-down;
 }
+
+    	#login-form a{
+		  	text-decoration: none;
+		  	color: #141518;
+		  	font-size: 13px;
+    		margin-top: 10px;
+    	}
