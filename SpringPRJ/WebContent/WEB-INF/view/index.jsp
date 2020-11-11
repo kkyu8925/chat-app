@@ -34,7 +34,7 @@
             </g>
             <path d="M40,105 C10,140 110,140 80,105 L80,105 L70,111 L60,105 L50,111 L40,105" fill="#fff" />
         </svg>
-        <input type="email" name="user_email" placeholder="Email"/>
+        <input type="text" name="user_email" placeholder="Email"/>
         <input type="password" name="user_pw" placeholder="Password"/>
         <input type="submit" value="Log In" style="background-color:#F9AC3A; cursor:pointer"/>
         <input type="button" value="Sign In" onclick="location.href='/user/userSignin.do'" style="background-color:#CD5604;cursor:pointer"/>
