@@ -4,37 +4,40 @@
 <html lang="en">
   <head>
   	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/screens/login.css">
+    <link rel="stylesheet" href="../css/components/no-mobile.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
   </head>
   <body>
 
-    <header class="welcome-header">
-      <h1 class="welcome-header__title">Find your password</h1>
-    </header>
+    <div class="form">
 
-    <form action="/user/findPasswordProc.do" method="post" id="login-form">
-      <input name="user_email" type="email" placeholder="Email" />
-      <input name="user_name" type="text" placeholder="Name" />
-      <div class="find-password-container">
-      	<div>
-      		<input type="submit" value="전송" class="line-input"/>
-      	</div>
-      	<div>
-      		<input type="button" value="이전" class="line-input" onClick="location.href='/index.do'"/>
-     	 </div>
-      </div>
-    </form>
+      <form action="/user/findPasswordProc.do" method="post" id="login-form">
+          <div class="text-input">
+            <label for="username">Username</label>
+            <input type="text" name="user_name" />
+            <span class="separator"> </span>
+          </div>
+          
+          <div class="text-input">
+            <label for="username">Email</label>
+            <input type="email" name="user_email" id="user_email" onkeyup="emailCheck();"/>
+            <span class="separator"> </span>
+          </div>  
+        
+          <div class="form-bottom">
+            <input type="submit" value="다음"  />
+            <input type="button" value="이전" onClick="location.href='/index.do'" />
+          </div>
+        </form>  
+          
+        </div>
 
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-    
-    <script>
-    	
-    </script>
-	
+
   </body>
 </html>

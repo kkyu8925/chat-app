@@ -37,7 +37,7 @@
 
     <main class="main-screen">
       <ul class="settings-list">
-      	<a href="/personalinfo.do">
+      	<a href="/user/account.do">
 	        <li class="settings__setting">
 	          <div class="settings__setting-column">
 	            <i class="far fa-id-card"></i>
@@ -82,6 +82,12 @@
     
    	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
+	
+	<script>
+	 	function LogOut(){
+	 		location.href = "/user/userLogOut.do";
+	 	}
+	</script>
 	
   </body>
 </html>
