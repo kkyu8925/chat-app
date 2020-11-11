@@ -22,7 +22,7 @@
 	          
 	          <div class="text-input">
 	            <label for="username">Email</label>
-	            <input type="email" name="user_email" id="user_email" onkeyup="emailCheck();"/>
+	            <input type="email" name="user_email" id="user_email"/>
 	            <span class="separator"> </span>
 	          </div>  
 	        

@@ -10,88 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>
-		/* 사이드바 스타일 */
-		.sidenav {
-			height:100%;
-			width: 0;
-			position: fixed;
-			z-index:3;
-			top: 0;
-			right: 0;
-			background-color: #FFFFFF;
-			overflow-x: hidden;
-			transition:0.5s ease-in-out;
-		}
-		.sidenav a {
-			padding: 10.5px 6px 8px 0px;
-			text-decoration: none;
-			color: #2e363e;
-			display: block;
-			transition: 0.2s ease-in-out;
-		}
-		.sidenav a:hover {
-			opacity: 0.4;
-		}
-		.closebtn {
-			position: absolute;
-			top: 15px;
-			right: 25px;
-			font-size: 37px !important;
-			margin-left: 50px;
-		}
-
-		.openmenu {
-			transition:0.5s ease-in-out;
-		}
-		.openmenu > i {
-			font-size: 25px;
-		}
-		/* 미디어쿼리 적용 */
-		@media screen and (max-height:450px) {
-			.sidenav {
-				padding-top:15px;
-			}
-			.sidenav a {
-				font-size: 18px;
-			}
-		}
-		.chat_title{
-			font-size:28px;
-			font-weight: 600;
-			padding-top: 33px;
-			padding-left:25px;
-			white-space: nowrap;
-		}
-		.chat__reply{
-			width:80%;
-			background-color:#F5F5F5;
-			border-top: 1px solid rgba(0, 0, 0, 0.2);
-		}
-		.nav__column{
-			padding: 15px;
-			
-		}
-		.nav__column span{
-			margin-left:20px;
-		}
-		.sidenav-left{
-			width:0;
-			height:100%;
-			position:fixed;
-			z-index:2;
-			top:0;
-			left:0;
-			background-color:black;
-			opacity: 0.3;
-			overflow-x:hidden;
-		}
-		.chat__hidden {
-			display: none;
-		}
-	</style>
   </head>
   <body id="chat-screen">
+  
   	<nav>
   		<div id="mysidenav" class="sidenav">
 			<a href="#" class="closebtn" onclick='closeNav()'>x</a>
