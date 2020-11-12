@@ -7,7 +7,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <script src="/js/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8" />
@@ -129,5 +128,6 @@
 		}
 
 	</script>
+	<script src="/js/fontawesome.js"></script>
   </body>
 </html>
