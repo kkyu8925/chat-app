@@ -9,12 +9,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chats</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     	/* 화면 조절 css start */
     	html, body, #resContainer{
@@ -42,37 +40,17 @@
     </style>
   </head>
   <body id="body-all">
+  <form id="form-data" name="form" method="post" action="/chat/intro.do">
 	<header class="screen-header">
 		<h1 class="screen-header__title" style="padding-left:25px;">Chats</h1>
 	    <div class="screen-header__icons" style="padding-right:25px;">
 	    	<span><i class="fas fa-search fa-lg" onclick='UpFind();'></i></span>
-	    	<span><i class="far fa-comment-dots fa-lg"></i></span>
+	    	<span><i class="far fa-comment-dots fa-lg" onclick='createRoom();'></i></span>
 	    </div>
 	</header>
+	</form>
 		
-    <main id="resContainer" class="friends-screen friend-mp">
-		
- 		<div class="user-component" onClick="location.href='/chat.do'">
-          <div class="user-component__column">
-            <div class="user-component__text">
-              <h4 class="user-component__title">chatroom</h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          	<i class="fas fa-angle-right"></i>
-          </div>
-        </div>
-      
-		<div class="user-component" onClick="location.href='/chat.do'">
-          <div class="user-component__column">
-            <div class="user-component__text">
-              <h4 class="user-component__title">chatroom</h4>
-            </div>
-          </div>
-          <div class="user-component__column">
-          	<i class="fas fa-angle-right"></i>
-          </div>
-        </div>
+    <main id="resContainer" class="friends-screen friend-mp room_list">
 		
     </main>
     
@@ -98,11 +76,54 @@
       <span>Your screen is too big</span>
     </div>
     
+	<script type="text/javascript">
+		var myChatRoom = "";
+		$(window).on('load', function() {
+			//전체 채팅방 리스트 가져오기
+			getRoomList();
+		});
+		//전체 채팅방 리스트 가져오기
+		function getRoomList() {
+			//Ajax 호출
+			$.ajax({
+				url : '/chat/roomList.do',
+				type : 'post',
+				dataType : "JSON",
+				contentType:"application/json; charset=UTF-8",
+				success : function(json) {
+					var roomList = "";
+					for (var i = 0; i < json.length; i++) {
+						roomList += (json[i] + "<br>");
+						
+						roomList += "<div class='user-component' onClick='location.href='/chat.do''>";
+						roomList +=   "<div class='user-component__column'>";
+						roomList +=     "<div class='user-component__text'>";
+						roomList +=       "<h4 class='user-component__title'>chatroom</h4>";
+						roomList +=     "</div>";
+						roomList +=   "</div>";
+						roomList +=   "<div class='user-component__column'>";
+						roomList +=   	"<i class='fas fa-angle-right'></i>";
+						roomList +=   "</div>";
+						roomList += "</div>";
+					}
+					$('.room_list').html(roomList);
+				}
+			})
+		}
+		
+		function createRoom() {
+			$('#form-data').submit();
+		}
+		
+	</script>
+    
     <!-- find jsp -->
     <%@include file="/WEB-INF/view/include/find.jsp" %>
     
 	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
 	
+	<script src="/js/fontawesome.js"></script>
+	<script src="/js/jquery-3.4.1.min.js"></script>
   </body>
 </html>

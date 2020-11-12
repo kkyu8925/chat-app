@@ -263,3 +263,7 @@
 		.chat__hidden {
 			display: none;
 		}
+		
+.text-hello {
+	width:100%;
+}
