@@ -4,7 +4,6 @@
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-    List<UserDTO> rList = (List<UserDTO>)request.getAttribute("rList");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,20 +30,22 @@
     	}
     	/* 화면 조절 css end */
     	.user-component {
-    		padding-top: 30px;
-    		padding-bottom: 30px;
     		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    		padding-bottom:30px;
+			padding-top:30px;
 		}
+
 		.user-component:hover {
 			background-color: #f9f9fa;
 			cursor:pointer;
 		}
+
     </style>
     	<script type="text/javascript">
-		var myChatRoom = "";
 		$(window).on('load', function() {
 			//전체 채팅방 리스트 가져오기
 			getRoomList();
+			
 		});
 		//전체 채팅방 리스트 가져오기
 		function getRoomList() {
@@ -58,7 +59,7 @@
 					var roomList = "";
 					for (var i = 0; i < json.length; i++) {
 						
-						roomList += "<div class='user-component' onClick='goChatRoom();'>";
+						roomList += "<div class='user-component' onclick='goRoom(this)' id='"+json[i]+"'>";
 						roomList +=   "<div class='user-component__column'>";
 						roomList +=     "<div class='user-component__text'>";
 						roomList +=       "<h4 class='user-component__title'>"+json[i]+"</h4>";
@@ -68,6 +69,7 @@
 						roomList +=   	"<i class='fas fa-angle-right'></i>";
 						roomList +=   "</div>";
 						roomList += "</div>";
+						
 					}
 					$('.room_list').html(roomList);
 				}
@@ -75,20 +77,25 @@
 		}
 		
 		function createRoom() {
-			var title = prompt('채팅방 이름을 입력하세요.');
+			var title = prompt('채팅방 이름을 입력하세요.','');
+			if(title != null){
 			$('#room_name').val(title);
 			$('#form-data').submit();
+			}
 		}
 		
-		function goChatRoom() {
-			location.href='/chatroom.do';
+		function goRoom(title) {
+			var roomtitle = $(title).attr('id');
+			console.log(roomtitle);
+			location.href='/chat/intro.do?roomKey='+roomtitle;
 		}
+
 		
 	</script>
   </head>
   <body id="body-all">
-  <form id="form-data" name="form" method="post" action="/chat/intro.do">
-  	<input type="hidden" id="room_name" name="room_name"/>
+  <form id="form-data" name="form" method="get" action="/chat/intro.do">
+  	<input type="hidden" id="room_name" name="roomKey"/>
 	<header class="screen-header">
 		<h1 class="screen-header__title" style="padding-left:25px;">Chats</h1>
 	    <div class="screen-header__icons" style="padding-right:25px;">
@@ -116,9 +123,6 @@
         </li>
       </ul>
     </nav>
-    <div id="splash-screen" style="background-color:white; color:red;">
-      <i class="fab fa-youtube" ></i>
-    </div>
 
     <div id="no-mobile">
       <span>Your screen is too big</span>

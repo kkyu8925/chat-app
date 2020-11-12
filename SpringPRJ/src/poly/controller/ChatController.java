@@ -50,9 +50,9 @@ public class ChatController {
 	}
 
 	/**
-	 * 채팅방 입장
+	 * 채팅방 생성
 	 */
-	@RequestMapping(value = "chat/intro", method=RequestMethod.POST)
+	@RequestMapping(value = "chat/intro", method=RequestMethod.GET)
 	public String intro(HttpServletRequest request, HttpServletResponse response, HttpSession session,ModelMap model)
 			throws Exception {
 
@@ -62,7 +62,7 @@ public class ChatController {
 		session.setAttribute("SS_ROOM_NAME", "");
 		
 		String user_name = CmmUtil.nvl((String)session.getAttribute("SS_USER_NAME"));
-		String roomKey = CmmUtil.nvl((String)request.getParameter("room_name"));
+		String roomKey = CmmUtil.nvl((String)request.getParameter("roomKey"));
 
 		log.info("user_name : " + user_name);
 		log.info("roomKey : " + roomKey);
@@ -75,7 +75,7 @@ public class ChatController {
 
 		pDTO.setRoomKey(roomKey);
 		pDTO.setMsg(user_name + "님이 입장하였습니다.");
-		pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd hh:mm"));
+		pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd HH:mm:ss"));
 
 		// 채팅 멘트 저장하기
 		chatService.insertChat(pDTO);
@@ -134,7 +134,7 @@ public class ChatController {
 			pDTO.setRoomKey(room_name);
 			pDTO.setUser_name(user_name);
 			pDTO.setMsg(msg);
-			pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd hh:mm"));
+			pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd HH:mm:ss"));
 
 			rList = chatService.insertChat(pDTO);
 

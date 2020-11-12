@@ -58,7 +58,7 @@ public class ChatMapper implements IChatMapper, IContRedis {
 		redisDB.setKeySerializer(new StringRedisSerializer()); // String 타입
 		redisDB.setValueSerializer(new Jackson2JsonRedisSerializer<>(ChatDTO.class));
 
-		redisDB.opsForList().leftPush(roomKey, pDTO);
+		redisDB.opsForList().rightPush(roomKey, pDTO);
 
 		res = 1;
 

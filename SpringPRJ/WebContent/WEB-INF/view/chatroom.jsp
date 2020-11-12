@@ -1,8 +1,10 @@
+<%@page import="poly.util.CmmUtil"%>
 <%@page import="poly.util.DateUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String room_name = (String)request.getAttribute("room_name");
+	String SS_ROOM_NAME = CmmUtil.nvl((String)session.getAttribute("SS_ROOM_NAME"));
+	String SS_USER_NAME = CmmUtil.nvl((String)session.getAttribute("SS_USER_NAME"));
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,16 +15,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
+    <script type="text/javascript">
+    	var SS_USER_NAME = '<%=SS_USER_NAME%>';
+    	$(window).on('load',function() {
+    		getAllMsg();
+    		setInterval('getAllMsg()',1000);
+    		
+    		$('#msgSendBtn').on('click',function() {
+    			var send_msg = $('#send_msg').val();
+    			
+    			if( $('#send_msg').val()==""){
+    				$('#send_msg').focus();
+    				return false;
+    			}
+    			
+    			$.ajax({
+    				url : "/chat/msg.do",
+    				type : "post",
+    				dataType : "JSON",
+    				data : {send_msg:send_msg},
+    				success : function(json) {
+    					getAllMsg();
+    					$('#send_msg').val("");
+    					$('#send_msg').focus();
+    					var scollheight = document.body.scrollHeight;
+    					window.scrollTo(0,scollheight);
+    				}
+    			})
+    		});
+    		
+    	});
+    	
+    	//채팅방 전체 대화 가져오기
+		function getAllMsg() {
+    		console.log("1초");
+			//Ajax 호출
+			$.ajax({
+				url : "/chat/getMsg.do",
+				type : "post",
+				dataType : "JSON",
+				//data : $("form").serialize(),
+				success : function(json) {
+					doOutputMsg(json);
+				}
+			})
+		}
+    	
+    	function doOutputMsg(json) {
+			if(json != null) {
+				var msgResult = "";
+				var listResult ="";
+				msgResult += "<div class='chat__timestamp'>"+'<%=DateUtil.getDateTime("M월 d일 E요일, yyyy") %>'+"</div>";
+				
+				for(var i = 0; i<json.length;i++) {
+					if(json[i].user_name != SS_USER_NAME){
+						var dateTimevalue = json[i].dateTime;
+						var resdateTime = dateTimevalue.substring(11,16);
+						msgResult += "<div class='message-row'>";
+						msgResult += 	"<img src='../img/basic.gif'/>";
+						msgResult += 	"<div class='message-row__content'>";
+						msgResult +=		"<span class='message__author'>"+json[i].user_name+"</span>";
+						msgResult += 		"<div class='message__info'>";
+						msgResult += 			"<span class='message__bubble'>"+json[i].msg+"</span>";
+						msgResult += 			"<span class='message__time'>"+resdateTime+"</span>";
+						msgResult += 		"</div>";
+						msgResult += 	"</div>";
+						msgResult += "</div>";
+					} else {
+						msgResult += "<div class='message-row message-row--own'>";
+						msgResult += 	"<div class='message-row__content'>";
+						msgResult += 		"<div class='message__info'>";
+						msgResult += 			"<span class='message__bubble'>"+json[i].msg+"</span>";
+						msgResult += 			"<span class='message__time'>"+resdateTime+"</span>";
+						msgResult += 		"</div>";
+						msgResult += 	"</div>";
+						msgResult += "</div>";
+					}
+				}
+				$('#chatresultHTML').html(msgResult);
+				document.body.scrollTop = document.body.scrollHeight;
+				
+				for(var i = 0; i<json.length;i++) {
+					if(json[i].user_name != SS_USER_NAME){
+						listResult += "<div class='message__info'>";
+						listResult += 	"<img class='sidenav__img' src='../img/basic.gif'/>";
+						listResult += 	"<span class='message__bubble'>"+json[i].user_name+"</span>";
+						listResult += "</div>"
+					}
+				}
+				$('.sidenav__userlist').html(listResult);
+			}
+    	}
+    	
+    </script>
+    <style>
+    	.sidenav__img{
+    		width: 50px;
+		    height: 50px;
+		    border-radius: 25px;
+		    margin-left: 10px;
+    	}
+    </style>
   </head>
   <body id="chat-screen">
   
   	<nav>
   		<div id="mysidenav" class="sidenav">
-			<a href="#" class="closebtn" onclick='closeNav()'>x</a>
-			<div class="chat_title">채팅방 유저</div>
+  			<div class="sidenav__header">
+				<a href="#" class="closebtn" onclick='closeNav()'>x</a>
+				<div class="chat_title">채팅방 유저</div>
+			</div>
+			<div class="sidenav__userlist" style="padding-top:40px;">
+		
+			</div>
 			
 			<div class="reply chat__reply">
 				<div class="nav__column" style="padding-left: 0px;">
+					
 					<span><i class="fas fa-sign-out-alt fa-lg"></i></span>
 				</div>
 				<div class="nav__column">
@@ -44,7 +153,7 @@
         </a>
       </div>
       <div class="alt-header__column text-hello">
-        <h1 class="alt-header__title"><%=room_name %></h1>
+        <h1 class="alt-header__title"><%=SS_ROOM_NAME %></h1>
       </div>
       <div class="alt-header__column">
       	<div class="alt-header__search-container">
@@ -55,41 +164,18 @@
       </div>
     </header>
 
-    <main class="main-screen main-chat">
-      <div class="chat__timestamp">
-        <%=DateUtil.getDateTime("M월 d일 E요일, yyyy") %>
-      </div>
-
-      <div class="message-row">
-        <img src="../img/basic.gif" />
-        <div class="message-row__content">
-          <span class="message__author">kkyu</span>
-          <div class="message__info">
-            <span class="message__bubble">Hi!</span>
-            <span class="message__time"><%=DateUtil.getDateTime("HH:mm") %></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="message-row message-row--own">
-        <div class="message-row__content">
-          <div class="message__info">
-            <span class="message__bubble">Hi nice to meet you!</span>
-            <span class="message__time"><%=DateUtil.getDateTime("HH:mm") %></span>
-          </div>
-        </div>
-      </div>
+    <main class="main-screen main-chat" id="chatresultHTML" style="padding-bottom: 50px;">
       
     </main>
 
-    <form class="reply" onsubmit="return false;">
+    <form class="reply" name="form" method="post" onsubmit="return false;">
       <div class="reply__column">
         <i class="far fa-plus-square fa-lg"></i>
       </div>
       <div class="reply__column">
-        <input type="text" placeholder="Write a message..."  />
+        <input type="text" name="send_msg" id="send_msg" placeholder="Write a message..."/>
         <i class="far fa-smile-wink fa-lg"></i>
-        <button style="background-color:#fae100">
+        <button id="msgSendBtn" style="background-color:#fae100; cursor:pointer;">
           <i class="fas fa-arrow-up"></i>
         </button>
       </div>

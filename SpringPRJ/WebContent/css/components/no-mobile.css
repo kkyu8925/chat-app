@@ -1,5 +1,5 @@
 #no-mobile {
-  position: absolute;
+  position: fixed;
   z-index: 99;
   height: 100vh;
   background-color: #F9E000;
@@ -10,10 +10,19 @@
   font-size: 32px;
   top: 0;
   left:0;
+  overflow:hidden;
 }
 
+#chat-screen{
+	overflow:hidden;
+}
 @media screen and (max-width: 650px) {
   #no-mobile {
     display: none;
+    overflow:auto;
   }
+  #chat-screen{
+  	overflow:auto;
+  }
+  
 }

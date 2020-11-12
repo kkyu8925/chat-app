@@ -36,6 +36,7 @@
   flex-direction: column;
   align-items: center;
   animation: fadeIn 0.8s linear;
+  margin-bottom:80px;
 }
 
 .chat__timestamp {

@@ -6,6 +6,15 @@ public class ChatDTO {
 	private String user_name = "";
 	private String msg = "";
 	private String dateTime = "";
+	private String type = "U"; // admin / user / who
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public String getRoomKey() {
 		return roomKey;
