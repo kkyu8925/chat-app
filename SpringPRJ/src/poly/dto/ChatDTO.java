@@ -3,18 +3,9 @@ package poly.dto;
 public class ChatDTO {
 
 	private String roomKey = "";
-	private String room_name = "";
 	private String user_name = "";
 	private String msg = "";
 	private String dateTime = "";
-
-	public String getRoom_name() {
-		return room_name;
-	}
-
-	public void setRoom_name(String room_name) {
-		this.room_name = room_name;
-	}
 
 	public String getRoomKey() {
 		return roomKey;

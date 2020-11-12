@@ -40,9 +40,55 @@
 			cursor:pointer;
 		}
     </style>
+    	<script type="text/javascript">
+		var myChatRoom = "";
+		$(window).on('load', function() {
+			//전체 채팅방 리스트 가져오기
+			getRoomList();
+		});
+		//전체 채팅방 리스트 가져오기
+		function getRoomList() {
+			//Ajax 호출
+			$.ajax({
+				url : '/chat/roomList.do',
+				type : 'post',
+				dataType : "JSON",
+				contentType:"application/json; charset=UTF-8",
+				success : function(json) {
+					var roomList = "";
+					for (var i = 0; i < json.length; i++) {
+						
+						roomList += "<div class='user-component' onClick='goChatRoom();'>";
+						roomList +=   "<div class='user-component__column'>";
+						roomList +=     "<div class='user-component__text'>";
+						roomList +=       "<h4 class='user-component__title'>"+json[i]+"</h4>";
+						roomList +=     "</div>";
+						roomList +=   "</div>";
+						roomList +=   "<div class='user-component__column'>";
+						roomList +=   	"<i class='fas fa-angle-right'></i>";
+						roomList +=   "</div>";
+						roomList += "</div>";
+					}
+					$('.room_list').html(roomList);
+				}
+			})
+		}
+		
+		function createRoom() {
+			var title = prompt('채팅방 이름을 입력하세요.');
+			$('#room_name').val(title);
+			$('#form-data').submit();
+		}
+		
+		function goChatRoom() {
+			location.href='/chatroom.do';
+		}
+		
+	</script>
   </head>
   <body id="body-all">
   <form id="form-data" name="form" method="post" action="/chat/intro.do">
+  	<input type="hidden" id="room_name" name="room_name"/>
 	<header class="screen-header">
 		<h1 class="screen-header__title" style="padding-left:25px;">Chats</h1>
 	    <div class="screen-header__icons" style="padding-right:25px;">
@@ -77,47 +123,6 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-    
-	<script type="text/javascript">
-		var myChatRoom = "";
-		$(window).on('load', function() {
-			//전체 채팅방 리스트 가져오기
-			getRoomList();
-		});
-		//전체 채팅방 리스트 가져오기
-		function getRoomList() {
-			//Ajax 호출
-			$.ajax({
-				url : '/chat/roomList.do',
-				type : 'post',
-				dataType : "JSON",
-				contentType:"application/json; charset=UTF-8",
-				success : function(json) {
-					var roomList = "";
-					for (var i = 0; i < json.length; i++) {
-						roomList += (json[i] + "<br>");
-						
-						roomList += "<div class='user-component' onClick='location.href='/chat.do''>";
-						roomList +=   "<div class='user-component__column'>";
-						roomList +=     "<div class='user-component__text'>";
-						roomList +=       "<h4 class='user-component__title'>chatroom</h4>";
-						roomList +=     "</div>";
-						roomList +=   "</div>";
-						roomList +=   "<div class='user-component__column'>";
-						roomList +=   	"<i class='fas fa-angle-right'></i>";
-						roomList +=   "</div>";
-						roomList += "</div>";
-					}
-					$('.room_list').html(roomList);
-				}
-			})
-		}
-		
-		function createRoom() {
-			$('#form-data').submit();
-		}
-		
-	</script>
     
     <!-- find jsp -->
     <%@include file="/WEB-INF/view/include/find.jsp" %>
