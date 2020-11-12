@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/screens/login.css">
     <link rel="stylesheet" href="/css/components/no-mobile.css">
-    <script src="/js/kquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
     	// 회원가입 유효성 체크 start
 		function doRegUserCheck(f) {

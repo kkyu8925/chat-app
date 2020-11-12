@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/css/ryan-style.css">
     <link rel="stylesheet" href="/css/components/no-mobile.css">
     <script src="/js/ryan-script.js"></script>
-    <script src="/js/kquery-3.4.1.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <form action="/user/userLoginProc.do" method="post" id="login-form">
