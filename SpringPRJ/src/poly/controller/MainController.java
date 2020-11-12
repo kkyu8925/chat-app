@@ -54,11 +54,11 @@ public class MainController {
 		return "/friends";
 	}
 	
-	@RequestMapping(value="chat")
-	public String chat() throws Exception {
+	@RequestMapping(value="chatroom")
+	public String chatroom() throws Exception {
 		log.info(this.getClass());
 		
-		return "/chat";
+		return "/chatroom";
 	}
 	
 	@RequestMapping(value="settings")

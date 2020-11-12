@@ -26,6 +26,25 @@
 
 	<dependencies>
 		
+		<!-- redis value를 json 형태로 표현하기 위해 추가 setValueSerializer(json) -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.9</version>
+		</dependency>		
+		<!-- redis 연동을 위해 Driver 파일 다운로드 -->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.10.2</version>
+		</dependency>
+		<!-- redis와 스프링 프레임워크와의 연동을 위해 추가 -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+			<version>1.8.23.RELEASE</version>
+		</dependency>
+		
 		<!-- 자바 메일 발송 라이브러리 -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -53,21 +72,21 @@
 			<artifactId>json-simple</artifactId>
 			<version>1.1.1</version>
 		</dependency>
-
+		
 		<!-- web soket -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-websocket</artifactId>
 			<version>${org.springframework-version}</version>
-		</dependency>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api -->
-		<dependency>
+		<!--  <dependency>
 			<groupId>javax.websocket</groupId>
 			<artifactId>javax.websocket-api</artifactId>
 			<version>1.1</version>
 			<scope>provided</scope>
-		</dependency>
-
+		</dependency>-->
+		
 		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

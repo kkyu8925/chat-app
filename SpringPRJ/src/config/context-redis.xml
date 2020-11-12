@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="jedisConnectionFactory"
+		class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
+		p:usePool="true" p:hostName="192.168.26.134" p:port="6379"
+		p:password="mypass"> 
+	</bean>
+	
+	<!-- 톰켓 부팅시 스프링이 실행되면서, 자동으로 redisTemplate이름으로 RedisDB제어하는 자바객체 메모리에 생성 -->
+	<bean id="redisTemplate" 
+		class="org.springframework.data.redis.core.RedisTemplate"
+		p:connectionFactory-ref="jedisConnectionFactory">
+	</bean>
+
+</beans>
