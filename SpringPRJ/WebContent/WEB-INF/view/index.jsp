@@ -6,9 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Log in</title>
-    <link rel="stylesheet" href="../css/ryan-style.css">
-    <link rel="stylesheet" href="../css/components/no-mobile.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/ryan-style.css">
+    <link rel="stylesheet" href="/css/components/no-mobile.css">
+    <script src="/js/ryan-script.js"></script>
+    <script src="/js/kquery-3.4.1.min.js"></script>
 </head>
 <body>
     <form action="/user/userLoginProc.do" method="post" id="login-form">
@@ -45,6 +46,5 @@
         <span>Your screen is too big</span>
       </div>
 
-    <script src="../js/ryan-script.js"></script>
 </body>
 </html>

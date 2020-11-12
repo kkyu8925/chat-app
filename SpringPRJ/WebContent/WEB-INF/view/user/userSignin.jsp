@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/screens/login.css">
-    <link rel="stylesheet" href="../css/components/no-mobile.css">
+    <link rel="stylesheet" href="/css/screens/login.css">
+    <link rel="stylesheet" href="/css/components/no-mobile.css">
+    <script src="/js/kquery-3.4.1.min.js"></script>
     <script type="text/javascript">
     	// 회원가입 유효성 체크 start
 		function doRegUserCheck(f) {

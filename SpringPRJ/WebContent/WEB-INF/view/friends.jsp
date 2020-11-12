@@ -10,11 +10,11 @@
 <html lang="en">
   <head>
   	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/kquery-3.4.1.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Friends</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
     	/* 화면 조절 css start */
     	html, body, #resContainer{

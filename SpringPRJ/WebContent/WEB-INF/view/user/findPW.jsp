@@ -4,8 +4,8 @@
 <html lang="en">
   <head>
   	<script src="https://kit.fontawesome.com/54d6336788.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/screens/login.css">
-    <link rel="stylesheet" href="../css/components/no-mobile.css">
+    <link rel="stylesheet" href="/css/screens/login.css">
+    <link rel="stylesheet" href="/css/components/no-mobile.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
