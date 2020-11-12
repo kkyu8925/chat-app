@@ -9,6 +9,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  	<script src="/js/fontawesome.js"></script>
+  	<script src="/js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="/css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -123,7 +125,5 @@
 	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>
 	
-	<script src="/js/fontawesome.js"></script>
-	<script src="/js/jquery-3.4.1.min.js"></script>
   </body>
 </html>

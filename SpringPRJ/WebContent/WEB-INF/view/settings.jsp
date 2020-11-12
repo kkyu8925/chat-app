@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<script src="/js/fontawesome.js"></script>  
     <link rel="stylesheet" href="/css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,6 +87,5 @@
 	 	}
 	</script>
 	
-	<script src="/js/fontawesome.js"></script>
   </body>
 </html>

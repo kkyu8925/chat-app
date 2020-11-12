@@ -8,6 +8,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/css/styles.css" />
+    <script src="/js/fontawesome.js"></script>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -128,6 +129,5 @@
 		}
 
 	</script>
-	<script src="/js/fontawesome.js"></script>
   </body>
 </html>
