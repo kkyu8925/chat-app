@@ -8,8 +8,6 @@
     <title>Log in</title>
     <link rel="stylesheet" href="/css/ryan-style.css">
     <link rel="stylesheet" href="/css/components/no-mobile.css">
-    <script src="/js/ryan-script.js"></script>
-    <script src="/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
     <form action="/user/userLoginProc.do" method="post" id="login-form">
@@ -45,6 +43,7 @@
     <div id="no-mobile">
         <span>Your screen is too big</span>
       </div>
-
+<script src="/js/ryan-script.js"></script>
+<script src="/js/jquery-3.4.1.min.js"></script>
 </body>
 </html>
