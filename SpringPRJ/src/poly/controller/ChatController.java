@@ -107,7 +107,7 @@ public class ChatController {
 	}
 
 	/**
-	 * 음성대화 저장
+	 * 대화 저장
 	 */
 	@RequestMapping(value = "chat/msg")
 	@ResponseBody
@@ -127,7 +127,7 @@ public class ChatController {
 
 		List<ChatDTO> rList = null;
 
-		// 음성 메시지가 존재하는 경우에만 대화가져오기
+		// 메시지가 존재하는 경우에만 대화가져오기
 		if (msg.length() > 0) {
 			ChatDTO pDTO = new ChatDTO();
 
@@ -153,7 +153,7 @@ public class ChatController {
 	}
 
 	/**
-	 * 음성대화 가져오기
+	 * 대화 가져오기
 	 */
 	@RequestMapping(value = "chat/getMsg")
 	@ResponseBody

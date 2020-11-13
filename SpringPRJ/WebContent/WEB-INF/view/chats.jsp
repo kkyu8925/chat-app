@@ -3,8 +3,6 @@
 <%@page import="java.util.List"%>
 <%@page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -45,6 +43,8 @@
 		$(window).on('load', function() {
 			//전체 채팅방 리스트 가져오기
 			getRoomList();
+			
+			setInterval('getRoomList()',1000);
 			
 		});
 		//전체 채팅방 리스트 가져오기
@@ -117,7 +117,7 @@
           </a>
         </li>
         <li class="nav__btn">
-          <a class="nav__link" href="/chat.do">
+          <a class="nav__link" href="/chats.do">
             <i class="fas fa-comment fa-2x"></i>
           </a>
         </li>

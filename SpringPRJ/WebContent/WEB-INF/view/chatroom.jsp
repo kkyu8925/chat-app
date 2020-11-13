@@ -19,7 +19,7 @@
     	var SS_USER_NAME = '<%=SS_USER_NAME%>';
     	$(window).on('load',function() {
     		getAllMsg();
-    		setInterval('getAllMsg()',1000);
+    		setInterval('getAllMsg()',500);
     		
     		$('#msgSendBtn').on('click',function() {
     			var send_msg = $('#send_msg').val();
@@ -48,7 +48,6 @@
     	
     	//채팅방 전체 대화 가져오기
 		function getAllMsg() {
-    		console.log("1초");
 			//Ajax 호출
 			$.ajax({
 				url : "/chat/getMsg.do",
@@ -93,7 +92,6 @@
 					}
 				}
 				$('#chatresultHTML').html(msgResult);
-				document.body.scrollTop = document.body.scrollHeight;
 				
 				for(var i = 0; i<json.length;i++) {
 					if(json[i].user_name != SS_USER_NAME){
