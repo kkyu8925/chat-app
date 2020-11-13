@@ -74,8 +74,10 @@ public class ChatController {
 		ChatDTO pDTO = new ChatDTO();
 
 		pDTO.setRoomKey(roomKey);
+		pDTO.setUser_name(user_name);
 		pDTO.setMsg(user_name + "님이 입장하였습니다.");
 		pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd HH:mm:ss"));
+		pDTO.setType("admin");
 
 		// 채팅 멘트 저장하기
 		chatService.insertChat(pDTO);
@@ -105,7 +107,7 @@ public class ChatController {
 
 		return rSet;
 	}
-
+	
 	/**
 	 * 대화 저장
 	 */

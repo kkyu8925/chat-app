@@ -89,7 +89,6 @@
 			console.log(roomtitle);
 			location.href='/chat/intro.do?roomKey='+roomtitle;
 		}
-
 		
 	</script>
   </head>
@@ -99,7 +98,6 @@
 	<header class="screen-header">
 		<h1 class="screen-header__title" style="padding-left:25px;">Chats</h1>
 	    <div class="screen-header__icons" style="padding-right:25px;">
-	    	<span><i class="fas fa-search fa-lg" onclick='UpFind();'></i></span>
 	    	<span><i class="far fa-comment-dots fa-lg" onclick='createRoom();'></i></span>
 	    </div>
 	</header>
@@ -127,9 +125,6 @@
     <div id="no-mobile">
       <span>Your screen is too big</span>
     </div>
-    
-    <!-- find jsp -->
-    <%@include file="/WEB-INF/view/include/find.jsp" %>
     
 	<!-- 로그인 확인 체크 페이지 -->
 	<%@include file="/WEB-INF/view/include/logincheck.jsp" %>

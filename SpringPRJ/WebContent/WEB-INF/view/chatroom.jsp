@@ -64,12 +64,20 @@
 			if(json != null) {
 				var msgResult = "";
 				var listResult ="";
+				var userSet = new Set();
 				msgResult += "<div class='chat__timestamp'>"+'<%=DateUtil.getDateTime("M월 d일 E요일, yyyy") %>'+"</div>";
 				
 				for(var i = 0; i<json.length;i++) {
-					if(json[i].user_name != SS_USER_NAME){
-						var dateTimevalue = json[i].dateTime;
-						var resdateTime = dateTimevalue.substring(11,16);
+					
+					//  유저 셋 유저들 추가.
+					userSet.add(json[i].user_name);
+					
+					var dateTimevalue = json[i].dateTime;
+					var resdateTime = dateTimevalue.substring(11,16);	
+					if(json[i].type == "admin"){
+						msgResult+= json[i].msg+'<br/><br/>';
+						
+					} else if(json[i].user_name != SS_USER_NAME){
 						msgResult += "<div class='message-row'>";
 						msgResult += 	"<img src='../img/basic.gif'/>";
 						msgResult += 	"<div class='message-row__content'>";
@@ -91,17 +99,19 @@
 						msgResult += "</div>";
 					}
 				}
+				
 				$('#chatresultHTML').html(msgResult);
 				
-				for(var i = 0; i<json.length;i++) {
-					if(json[i].user_name != SS_USER_NAME){
-						listResult += "<div class='message__info'>";
-						listResult += 	"<img class='sidenav__img' src='../img/basic.gif'/>";
-						listResult += 	"<span class='message__bubble'>"+json[i].user_name+"</span>";
-						listResult += "</div>"
-					}
+				var userArr = Array.from(userSet);
+				for(var i = 0; i<userArr.length;i++) {
+					listResult += "<div class='message__info'>";
+					listResult += 	"<img class='sidenav__img' src='../img/basic.gif'/>";
+					listResult += 	"<span class='message__bubble'>"+userArr[i]+"</span>";
+					listResult += "</div>";
 				}
+					
 				$('.sidenav__userlist').html(listResult);
+				
 			}
     	}
     	

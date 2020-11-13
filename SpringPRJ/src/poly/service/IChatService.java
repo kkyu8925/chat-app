@@ -15,5 +15,5 @@ public interface IChatService {
 
 	// 채팅 대화 가져오기
 	public List<ChatDTO> getChat(ChatDTO pDTO) throws Exception;
-
+	
 }

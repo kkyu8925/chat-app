@@ -6,15 +6,7 @@ public class ChatDTO {
 	private String user_name = "";
 	private String msg = "";
 	private String dateTime = "";
-	private String type = "U"; // admin / user / who
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
+	private String type = ""; // admin / user / who
 
 	public String getRoomKey() {
 		return roomKey;
@@ -46,6 +38,14 @@ public class ChatDTO {
 
 	public void setDateTime(String dateTime) {
 		this.dateTime = dateTime;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 
 }

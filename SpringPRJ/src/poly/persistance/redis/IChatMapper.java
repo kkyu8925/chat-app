@@ -21,5 +21,6 @@ public interface IChatMapper {
 
 	// 데이터 저장 유효시간을 분 단위로 설정
 	public boolean setTimeOutMinute(String roomKey, int minutes) throws Exception;
+	
 
 }
