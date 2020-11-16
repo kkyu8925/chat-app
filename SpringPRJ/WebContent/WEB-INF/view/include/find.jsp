@@ -54,7 +54,7 @@
 						resHTML +=      '<div class="friends-screen__channel">';
 						resHTML +=        '<div class="user-component">';
 						resHTML +=          '<div class="user-component__column">';
-						resHTML +=           '<img src="../img/basic.jpg" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=           '<img src="/img/basic.jpg" class="user-component__avatar user-component__avatar--sm"/>';
 						resHTML +=            '<div class="user-component__text">';
 						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">no search user</h4>';
 						resHTML +=            '</div>';
@@ -68,7 +68,7 @@
 						resHTML +=      '<div class="friends-screen__channel">';
 						resHTML +=        '<div class="user-component">';
 						resHTML +=          '<div class="user-component__column">';
-						resHTML +=           '<img src="../img/basic.jpg" class="user-component__avatar user-component__avatar--sm"/>';
+						resHTML +=           '<img src="/img/basic.jpg" class="user-component__avatar user-component__avatar--sm"/>';
 						resHTML +=            '<div class="user-component__text">';
 						resHTML +=              '<h4 class="user-component__title user-component__title--not-bold">'+data[i].user_name+'</h4>';
 						resHTML +=            '</div>';
