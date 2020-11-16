@@ -52,7 +52,7 @@
       <ul class="settings-list">
 	  	<li class="settings__setting settings__setting-hover">
 	    	<div class="settings__setting-column">
-	        	<img src="../img/basic.gif" class="user-component__avatar user-component__avatar--sm"/>
+	        	<img src="../img/basic.jpg" class="user-component__avatar user-component__avatar--sm"/>
 	    	</div>
 	        <div class="settings__setting-column">
 	          	<i class="fas fa-angle-right"></i>

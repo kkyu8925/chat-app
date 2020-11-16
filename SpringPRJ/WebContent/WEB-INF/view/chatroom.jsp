@@ -65,7 +65,7 @@
 				var msgResult = "";
 				var listResult ="";
 				var userSet = new Set();
-				msgResult += "<div class='chat__timestamp'>"+'<%=DateUtil.getDateTime("M월 d일 E요일, yyyy") %>'+"</div>";
+				msgResult += "<div class='chat__timestamp'>"+'<%=DateUtil.getDateTime("M월 d일 E, yyyy") %>'+"</div>";
 				
 				for(var i = 0; i<json.length;i++) {
 					
@@ -79,7 +79,7 @@
 						
 					} else if(json[i].user_name != SS_USER_NAME){
 						msgResult += "<div class='message-row'>";
-						msgResult += 	"<img src='../img/basic.gif'/>";
+						msgResult += 	"<img src='../img/basic.jpg'/>";
 						msgResult += 	"<div class='message-row__content'>";
 						msgResult +=		"<span class='message__author'>"+json[i].user_name+"</span>";
 						msgResult += 		"<div class='message__info'>";
@@ -105,7 +105,7 @@
 				var userArr = Array.from(userSet);
 				for(var i = 0; i<userArr.length;i++) {
 					listResult += "<div class='message__info'>";
-					listResult += 	"<img class='sidenav__img' src='../img/basic.gif'/>";
+					listResult += 	"<img class='sidenav__img' src='../img/basic.jpg'/>";
 					listResult += 	"<span class='message__bubble'>"+userArr[i]+"</span>";
 					listResult += "</div>";
 				}
