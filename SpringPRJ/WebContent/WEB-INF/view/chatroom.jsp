@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String SS_ROOM_NAME = CmmUtil.nvl((String)session.getAttribute("SS_ROOM_NAME"));
-	String SS_USER_NAME = CmmUtil.nvl((String)session.getAttribute("SS_USER_NAME"));
+	String SS_USER_NO = CmmUtil.nvl((String)session.getAttribute("SS_USER_NO"));
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chat</title>
     <script type="text/javascript">
-    	var SS_USER_NAME = '<%=SS_USER_NAME%>';
+    	var SS_USER_NO = '<%=SS_USER_NO%>';
     	$(window).on('load',function() {
     		getAllMsg();
     		setInterval('getAllMsg()',500);
@@ -77,7 +77,7 @@
 					if(json[i].type == "admin"){
 						msgResult+= json[i].msg+'<br/><br/>';
 						
-					} else if(json[i].user_name != SS_USER_NAME){
+					} else if(json[i].user_no != SS_USER_NO){
 						msgResult += "<div class='message-row'>";
 						msgResult += 	"<img src='/img/basic.jpg'/>";
 						msgResult += 	"<div class='message-row__content'>";

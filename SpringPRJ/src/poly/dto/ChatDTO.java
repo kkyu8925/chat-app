@@ -4,9 +4,18 @@ public class ChatDTO {
 
 	private String roomKey = "";
 	private String user_name = "";
+	private String user_no = "";
 	private String msg = "";
 	private String dateTime = "";
 	private String type = ""; // admin / user / who
+
+	public String getUser_no() {
+		return user_no;
+	}
+
+	public void setUser_no(String user_no) {
+		this.user_no = user_no;
+	}
 
 	public String getRoomKey() {
 		return roomKey;

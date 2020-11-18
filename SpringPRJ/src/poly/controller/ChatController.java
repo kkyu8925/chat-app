@@ -120,9 +120,11 @@ public class ChatController {
 
 		String room_name = CmmUtil.nvl((String) session.getAttribute("SS_ROOM_NAME"));
 		String user_name = CmmUtil.nvl((String) session.getAttribute("SS_USER_NAME"));
+		String user_no = CmmUtil.nvl((String) session.getAttribute("SS_USER_NO"));
 
 		String msg = CmmUtil.nvl(request.getParameter("send_msg"));
 
+		log.info("user_no : " + user_no);
 		log.info("user_name : " + user_name);
 		log.info("room_name : " + room_name);
 		log.info("msg : " + msg);
@@ -135,6 +137,7 @@ public class ChatController {
 
 			pDTO.setRoomKey(room_name);
 			pDTO.setUser_name(user_name);
+			pDTO.setUser_no(user_no);
 			pDTO.setMsg(msg);
 			pDTO.setDateTime(DateUtil.getDateTime("yyyy.MM.dd HH:mm:ss"));
 
