@@ -45,7 +45,7 @@
     			})
     		});
     		
-    		$('.apparatusWrap').hover(   
+    		$('.apparatusWrap').hover(
     				function(){
     					$('.apparatusWrap').removeClass("far");
     					$('.apparatusWrap').removeClass("fa-smile-wink");
