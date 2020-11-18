@@ -18,6 +18,7 @@
     <script type="text/javascript">
     	var SS_USER_NO = '<%=SS_USER_NO%>';
     	$(window).on('load',function() {
+    		
     		getAllMsg();
     		setInterval('getAllMsg()',500);
     		
@@ -42,6 +43,20 @@
     					window.scrollTo(0,scollheight);
     				}
     			})
+    		});
+    		
+    		$('.apparatusWrap').hover(   
+    				function(){
+    					$('.apparatusWrap').removeClass("far");
+    					$('.apparatusWrap').removeClass("fa-smile-wink");
+    					$('.apparatusWrap').addClass("fas");
+    					$('.apparatusWrap').addClass("fa-grin-squint-tears");
+    				},                  
+    				function(){
+    					$('.apparatusWrap').addClass("far");
+    					$('.apparatusWrap').addClass("fa-smile-wink");
+    					$('.apparatusWrap').removeClass("fas");
+    					$('.apparatusWrap').removeClass("fa-grin-squint-tears");
     		});
     		
     	});
@@ -243,7 +258,7 @@
 
       <div class="reply__column">
         <input type="text" name="send_msg" id="send_msg" placeholder="Write a message..."/>
-        <i class="far fa-smile-wink fa-lg"></i>
+        <i class="far fa-smile-wink fa-lg apparatusWrap"></i>
         <button id="msgSendBtn" style="background-color:#fae100; cursor:pointer;">
           <i class="fas fa-arrow-up"></i>
         </button>
@@ -288,7 +303,7 @@
 		  var popup = document.getElementById("myPopup");
 		  popup.classList.toggle("show");
 		}
-
+		
 	</script>
   </body>
 </html>
