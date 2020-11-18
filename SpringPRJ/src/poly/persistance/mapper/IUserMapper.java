@@ -24,4 +24,6 @@ public interface IUserMapper {
 
 	UserDTO getUserExists2(UserDTO pDTO) throws Exception;
 
+	UserDTO getUserInfoforNo(UserDTO pDTO) throws Exception;
+
 }

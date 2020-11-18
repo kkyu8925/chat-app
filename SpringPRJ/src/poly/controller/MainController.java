@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import poly.dto.UserDTO;
 import poly.service.IUserService;
+import poly.util.CmmUtil;
 
 
 @Controller
@@ -81,9 +82,30 @@ public class MainController {
 		return "/user/findPW";
 	}
 	
+	/**
+	 * 개인 정보 페이지
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="user/account")
-	public String account() throws Exception {
-		log.info(this.getClass());
+	public String account(HttpSession session,ModelMap model) throws Exception {
+		log.info(this.getClass().getName() + ".user/account start");
+		
+		String user_no = CmmUtil.nvl((String)session.getAttribute("SS_USER_NO"));
+		log.info("user_no : "+user_no);
+		
+		UserDTO pDTO = new UserDTO();
+		pDTO.setUser_no(user_no);
+		
+		UserDTO rDTO = userService.getUserInfoforNo(pDTO);
+		
+		if(rDTO == null) {
+			rDTO = new UserDTO();
+		}
+		
+		model.addAttribute("rDTO",rDTO);
+		
+		log.info(this.getClass().getName() + ".user/account end");
 		
 		return "/user/account";
 	}

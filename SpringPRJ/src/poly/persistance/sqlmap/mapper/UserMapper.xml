@@ -12,6 +12,17 @@
 		USER_EMAIL=#{user_email} AND USER_PW=#{user_pw}
 	</select>
 	
+	<select id="getUserInfoforNo" parameterType="UserDTO" resultType="UserDTO">
+		SELECT
+		USER_NAME,
+		USER_NO,
+		USER_EMAIL
+		FROM
+		chat.user
+		WHERE
+		USER_NO=#{user_no}
+	</select>
+	
 	<!-- 회원 가입하기(회원정보 등록) -->
 	<insert id="insertUserInfo" parameterType="UserDTO">
 		INSERT INTO chat.user(

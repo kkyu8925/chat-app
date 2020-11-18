@@ -1,8 +1,8 @@
+<%@page import="poly.dto.UserDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String SS_USER_NAME = (String)session.getAttribute("SS_USER_NAME");
-	String SS_USER_NO = (String)session.getAttribute("SS_USER_NO");
+	UserDTO rDTO = (UserDTO)request.getAttribute("rDTO");
 %>    
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +64,7 @@
 		        	<span>Email</span>
 		    	</div>
 		        <div class="settings__setting-column">
-		        	<span class="personal-text personal-text-email">email@email.com</span>
+		        	<span class="personal-text personal-text-email"><%=rDTO.getUser_email() %></span>
 		    	</div>
 		  	</li>	 
 	  	
@@ -74,7 +74,7 @@
 		        	<span>Name</span>
 		    	</div>
 		        <div class="settings__setting-column">
-		        	<span class="personal-text"><%=SS_USER_NAME %></span>
+		        	<span class="personal-text"><%=rDTO.getUser_name() %></span>
 		          	<i class="fas fa-angle-right"></i>
 		    	</div>
 		  	</li>

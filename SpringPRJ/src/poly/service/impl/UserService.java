@@ -1,8 +1,15 @@
 package poly.service.impl;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 import org.springframework.stereotype.Service;
 
@@ -161,6 +168,16 @@ public class UserService implements IUserService {
 	    	}
 	    	return buffer.toString();
 	 }
+
+	@Override
+	public UserDTO getUserInfoforNo(UserDTO pDTO) throws Exception {
+		
+		UserDTO rDTO = new UserDTO();
+		rDTO = userMapper.getUserInfoforNo(pDTO);
+		rDTO.setUser_email(EncryptUtil.decAES128CBC(CmmUtil.nvl(rDTO.getUser_email())));
+		
+		return rDTO;
+	}
 	 	
 
 }
