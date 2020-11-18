@@ -27,9 +27,6 @@ public class MainController {
 	public String Index(HttpSession session) throws Exception {
 		log.info(this.getClass());
 		
-		// session을 비움
-		//session.invalidate();
-		
 		return "/index";
 	}
 	

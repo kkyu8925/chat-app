@@ -3,7 +3,7 @@
 
 <script>
 	// 로그인 유지 확인 
-	if('<%=session.getAttribute("SS_USER_NAME") %>'===null){
+	if('<%=session.getAttribute("SS_USER_NO") %>'===null){
 		alert("로그인 해주세요");
 		location.href = "index.do";
  	}

@@ -34,6 +34,64 @@ public class UserController {
 	 */
 	@Resource(name = "UserService")
 	private IUserService userService;
+	
+	/**
+	 * 로그인 처리 및 결과 알려주는 화면으로 이동
+	 * 구글 auth
+	 */
+	@RequestMapping(value = "user/usergauthProc.do",method = RequestMethod.POST)
+	public String usergauthProc(HttpSession session, HttpServletRequest request, HttpServletResponse response,
+			ModelMap model) throws Exception {
+		
+		String msg = "gauth 실패.";
+		String url ="/";
+		UserDTO pDTO = null;
+		UserDTO rDTO;
+		
+		try {
+			//가져오기
+			String user_email = CmmUtil.nvl(request.getParameter("user_email"));
+			String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
+			String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+			String user_name = CmmUtil.nvl(request.getParameter("user_name"));
+			String user_Image = CmmUtil.nvl(request.getParameter("user_Image"));
+			String user_isGUser = CmmUtil.nvl(request.getParameter("user_isGUser"));
+			
+			log.info("user_name : " +user_name);
+			log.info("user_email : " +user_email);
+			log.info("user_pw : " + user_pw);
+			
+			//이메일, 모조비번 저장 (나머지 속성은 DTO속성을 추가해야함)
+			pDTO = new UserDTO();
+			pDTO.setUser_name(user_name);
+			pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
+			pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
+			
+			//유저 조회
+			rDTO = userService.getUserInfo(pDTO);
+			
+			//서버에 저장 (gauth 사용시 권장되지 않음)
+			int res = userService.insertUserInfo(pDTO); //서비스에서 중복 거르므로 if문 작성 안함
+			msg="gauth 가입 성공!";
+			if (rDTO != null) { // 로그인 성공(일반 로그인 가능하므로, DTO에 isgauth 속성 넣을 것 -> getuser_isgauth로 조회)
+				session.setAttribute("SS_USER_NAME", rDTO.getUser_name());
+				session.setAttribute("SS_USER_NO", rDTO.getUser_no());
+				msg="gauth 로그인 성공";
+				url="/friends.do";
+			}
+		} catch (Exception e) {
+			log.info(e.toString());
+			e.printStackTrace();
+			msg="로그인 실패 - 시스템 에러";
+		} finally {
+			log.info(this.getClass().getName() + ".user/usergauthProc.do 끝!");
+			model.addAttribute("url", url);
+			model.addAttribute("msg", msg);
+			model.addAttribute("pDTO", pDTO);
+			pDTO = null;
+		}
+		return "/redirect";
+	}
 
 	/**
 	 * 로그인 처리 및 결과 알려주는 화면으로 이동

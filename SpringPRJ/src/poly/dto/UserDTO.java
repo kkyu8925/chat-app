@@ -13,14 +13,14 @@ public class UserDTO {
 	private String reg_dt; // 등록 일자 default 현재 시간들어감
 	private String chg_id; // 변경 아이디
 	private String chg_dt; // 변경일자 default 현재 시간들어감
-	private String Exists_yn; 
+	private String exists_yn;
 
 	public String getExists_yn() {
-		return Exists_yn;
+		return exists_yn;
 	}
 
 	public void setExists_yn(String exists_yn) {
-		Exists_yn = exists_yn;
+		this.exists_yn = exists_yn;
 	}
 
 	public String getUser_no() {
