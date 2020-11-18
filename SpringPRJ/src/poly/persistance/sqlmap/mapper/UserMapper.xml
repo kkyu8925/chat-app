@@ -4,7 +4,8 @@
 <mapper namespace="poly.persistance.mapper.IUserMapper">
 	<select id="getUserInfo" parameterType="UserDTO" resultType="UserDTO">
 		SELECT
-		USER_NAME
+		USER_NAME,
+		USER_NO
 		FROM
 		chat.user
 		WHERE

@@ -240,10 +240,7 @@
         <img class="popuptext" id="myPopup" src="/img/bear.jpg"
 			     alt="bears">
       </div>
-      
-      <div class="reply__column">
-        <i class="far fa-plus-square fa-lg"></i>
-      </div>
+
       <div class="reply__column">
         <input type="text" name="send_msg" id="send_msg" placeholder="Write a message..."/>
         <i class="far fa-smile-wink fa-lg"></i>
