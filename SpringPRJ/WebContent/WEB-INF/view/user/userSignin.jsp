@@ -61,14 +61,14 @@
           
           <div class="text-input">
             <label for="password">Password</label>
-            <input type="password" name="user_pw" />
+            <input type="password" name="user_pw" minlength="8"/>
             <span class="separator"> </span>
             <div class="log-messages">문자,숫자,기호를 조합하여 8자 이상을 사용하세요</div>
           </div> 
 
           <div class="text-input">
             <label for="password">Password check</label>
-            <input type="password" name="user_pw2"/>
+            <input type="password" name="user_pw2" minlength="8"/>
             <span class="separator"> </span>
           </div>  
         
