@@ -59,6 +59,15 @@
     					$('.apparatusWrap').removeClass("fa-grin-squint-tears");
     		});
     		
+    		$('#bell-icon').click( function() {
+    			$( '#bell-icon' ).toggleClass('far');
+    			$( '#bell-icon' ).toggleClass('fas');
+    		});
+    		
+    		$('#star-icon').click( function() {
+    			$( '#star-icon' ).toggleClass('far');
+    			$( '#star-icon' ).toggleClass('fas');
+    		});
     	});
     	
     	//채팅방 전체 대화 가져오기
@@ -216,8 +225,8 @@
 					<span><i class="fas fa-sign-out-alt fa-lg"></i></span>
 				</div>
 				<div class="nav__column">
-					<span><i class="far fa-bell-slash fa-lg"></i></span>
-					<span><i class="far fa-star fa-lg"></i></span>
+					<span><i id="bell-icon" class="far fa-bell fa-lg"></i></span>
+					<span><i id="star-icon" class="far fa-star fa-lg"></i></span>
 					<span><i class="fas fa-cog fa-lg"></i></span>
 				</div>
 			</div>
