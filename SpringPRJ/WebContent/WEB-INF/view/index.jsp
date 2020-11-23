@@ -15,6 +15,10 @@
     	var cnt = 0;
 	    function checkLoginStatus() {
 			var gauthLoginState = document.querySelector('#gauthLoginState');
+			if(cnt==0){
+				gapi.auth2.getAuthInstance().signOut();
+				console.log('gauth 자동 로그인 막기!!!');
+			}
 			cnt++;
 	  		if(gauth.isSignedIn.get()){
 	  			gauthLoginState.value = 'Login';
@@ -121,7 +125,7 @@
         </div>
     </form>
     
-    	<form action="/user/usergauthLoginProc.do" method="post" id="gauthLoginState" style='display:none' value="Logout">
+    	<form action="/user/usergauthLoginProc.do" method="post" id="gauthLoginState" style='background-color: #3D516B;display:none;' value="Logout">
 	    	<input type="hidden" name="user_email" />
 	    	<input type="hidden" name="user_pw" />
 	    </form>

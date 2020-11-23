@@ -67,12 +67,13 @@ public class UserController {
 			pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
 			pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
 			
-			//유저 조회
-			rDTO = userService.getUserInfo(pDTO);
 			
 			//서버에 저장 (gauth 사용시 권장되지 않음)
 			int res = userService.insertUserInfo(pDTO); //서비스에서 중복 거르므로 if문 작성 안함
 			msg="gauth 가입 성공!";
+			//유저 조회
+			rDTO = userService.getUserInfo(pDTO);
+			
 			if (rDTO != null) { // 로그인 성공(일반 로그인 가능하므로, DTO에 isgauth 속성 넣을 것 -> getuser_isgauth로 조회)
 				session.setAttribute("SS_USER_NAME", rDTO.getUser_name());
 				session.setAttribute("SS_USER_NO", rDTO.getUser_no());
