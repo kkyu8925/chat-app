@@ -99,4 +99,17 @@
 		chat.user
 		WHERE USER_EMAIL=#{user_email} AND USER_NAME=#{user_name}
 	</select>
+	
+	<update id="chgNameProc" parameterType="UserDTO">
+		UPDATE user
+		SET USER_NAME =#{user_name},
+		chg_id =#{user_name}
+		WHERE user_no =#{user_no};
+	</update>
+	
+	<update id="chgPWProc" parameterType="UserDTO">
+		UPDATE user
+		SET user_pw =#{user_pw}
+		WHERE user_no =#{user_no};
+	</update>
 </mapper>

@@ -23,5 +23,8 @@ public interface IUserService {
 	int findPasswordProc(UserDTO pDTO) throws Exception;
 
 	UserDTO getUserInfoforNo(UserDTO pDTO) throws Exception;
-	
+
+	int chgPWProc(UserDTO pDTO) throws Exception;
+
+	int chgNameProc(UserDTO pDTO) throws Exception;	
 }

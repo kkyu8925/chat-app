@@ -464,5 +464,70 @@ public class UserController {
 		}
 		return "/redirect";
 	}
+	
+	@RequestMapping(value = "user/chgNameProc.do",method = RequestMethod.POST)
+	public String chgNameProc(HttpSession session, HttpServletRequest request, ModelMap model) throws Exception {
+		log.info(this.getClass().getName() + ".user/chgNameProc start");
+		
+		UserDTO pDTO = null;
+		log.info("DTO init 성공!");
+		
+		//유저 정보 가져오기
+		String user_no = (String) session.getAttribute("SS_USER_NO");
+		log.info("user_no : " + user_no + ", 세션 변환 성공! ");
+		
+		//수정 이름 가져오기
+		String user_name = CmmUtil.nvl(request.getParameter("user_name"));
+		log.info("user_name : " + user_name + ", 수정 이름!!! ");
+		
+		// 전달
+		pDTO = new UserDTO();
+		pDTO.setUser_no(user_no);
+		log.info("user_no 넣기 성공!");
+		pDTO.setUser_name(user_name);
+		log.info("user_name 넣기 성공!");
+		userService.chgNameProc(pDTO);
+		log.info("userService로 전달 성공!");
+		
+		session.setAttribute("SS_USER_NAME", user_name);
+		
+		model.addAttribute("msg", "이름변경 성공");
+		model.addAttribute("url", "/user/account.do");
+
+		log.info(this.getClass().getName() + ".user/chgNameProc end");
+		return "/redirect";
+	}
+	
+	@RequestMapping(value = "user/chgPWProc.do",method = RequestMethod.POST)
+	public String chgPWProc(HttpSession session, HttpServletRequest request, ModelMap model) throws Exception {
+		log.info(this.getClass().getName() + ".user/chgPWProc start");
+
+		UserDTO pDTO = null;
+		log.info("DTO init 성공!");
+
+		//유저 정보 가져오기
+		String user_no = (String) session.getAttribute("SS_USER_NO");
+		log.info("user_no : " + user_no + ", 세션 변환 성공! ");
+
+		//수정 이름 가져오기
+		String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
+		log.info("user_pw : " + user_pw + ", 수정 이름!!! ");
+
+		// 전달
+		pDTO = new UserDTO();
+		pDTO.setUser_no(user_no);
+		log.info("user_no 넣기 성공!");
+		pDTO.setUser_pw(EncryptUtil.encHashSHA256(user_pw));
+		log.info("user_name 넣기 성공!");
+		userService.chgPWProc(pDTO);
+		log.info("userService로 전달 성공!");
+
+		model.addAttribute("msg", "비밀번호 변경 성공");
+		model.addAttribute("url", "/");
+
+		log.info(this.getClass().getName() + ".user/chgPWProc end");
+		return "/redirect";
+	}
+	
 
 }

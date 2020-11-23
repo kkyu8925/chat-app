@@ -8,6 +8,83 @@
     <title>Log in</title>
     <link rel="stylesheet" href="/css/ryan-style.css">
     <link rel="stylesheet" href="/css/components/no-mobile.css">
+    <meta name="google-signin-client_id" content="967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com">
+    <meta name="google-signin-clientSecret" content="ddd_AQLZ7DMwIkjwVeo4UpNi">
+    <!-- gauth 로직 -->
+    <script>
+    	var cnt = 0;
+	    function checkLoginStatus() {
+			var gauthLoginState = document.querySelector('#gauthLoginState');
+			cnt++;
+	  		if(gauth.isSignedIn.get()){
+	  			gauthLoginState.value = 'Login';
+	  			console.log('signed');
+	  			/* 로그인 정보 객체화 */
+	  			googleUser = gauth.currentUser.get();
+	  			profile = googleUser.getBasicProfile();
+	  			//var id_token = googleUser.getAuthResponse().id_token; //id 토큰
+		    	console.log('name? ' + profile.getName());
+		    	console.log('cnt???' + cnt);
+	  			if(gauthLoginState.value == 'Login'){
+	  				console.log("자동인증됨")
+	  				if(cnt>2){// 자동 이동 막기 //
+			  			/* 값 전달 */
+			  			// 폼만들기
+			  			var form = document.createElement('form');
+				        form.setAttribute('method', 'post'); 
+				        form.setAttribute('action', '/user/usergauthProc.do');
+				        //params
+				        var params = {'user_email': profile.getEmail(),
+					                'user_pw': 'gauthUser',
+					                'user_id': profile.getId(),
+					                'user_name': profile.getName(),
+					                'user_Image': profile.getImageUrl(),
+					                'user_isGUser': 'yes'};
+				        /* 삽입,전송 */
+				        for (var p in params) {
+				            var input = document.createElement('input');
+				            input.setAttribute('type', 'hidden');
+				            input.setAttribute('name', p);
+				            input.setAttribute('value', params[p]);
+				            form.appendChild(input);
+				          }
+				        document.body.appendChild(form);
+				        console.log('moving to chat page');
+				      //gapi.auth2.getAuthInstance().disconnect(); //연결 끊기
+				        form.submit();
+		  			}
+	  			}
+	  		}else{
+	  			console.log('not signed');
+				<%session.removeValue("isGauth");%>//Gauth세션 삭제
+	  			gauthLoginState.value = 'Logout';
+	  		}console.log("isGauth? :" + <%=session.getAttribute("isGauth")%>);
+		}
+	    function init() {
+	  		console.log('init auth2');
+			gapi.load('auth2', function() {
+	  	    /* Ready. Make a call to gapi.auth2.init or some other API */
+	  		});
+	  		console.log('auth2 Obj');
+	  		window.gauth = gapi.auth2.init({
+		  		client_id: '967750790060-v9ro6kgih816p02fq4mvnafmf3fv04kg.apps.googleusercontent.com'
+		  	})
+		  	gauth.then(function(){
+	  			console.log('gauth2 success');
+	  			checkLoginStatus();
+	  			}, function(){
+	  				console.log('gauth2 fail');
+		  	});
+	  	} 
+    </script>
+    <style>
+     .gooContainer{
+     	display: flex;
+	    justify-content: space-between;
+	    margin-top: 17px;
+	    height: 30px;
+     }
+    </style>
 </head>
 <body>
     <form action="/user/userLoginProc.do" method="post" id="login-form">
@@ -37,13 +114,24 @@
         <input type="password" name="user_pw" placeholder="Password"/>
         <input type="submit" value="Log In" style="background-color:#F9AC3A; cursor:pointer"/>
         <input type="button" value="Sign In" onclick="location.href='/user/userSignin.do'" style="background-color:#CD5604;cursor:pointer"/>
-        <a href="/findPW.do">Forgot password?</a>
+        <div class="gooContainer">
+	        <!-- gauth 버튼, gauth 체크용 hidden 버튼 -->
+	        <div class="g-signin2" data-onsuccess="checkLoginStatus" data-theme="dark"></div>
+	        <a href="/findPW.do">Forgot password?</a>
+        </div>
     </form>
+    
+    	<form action="/user/usergauthLoginProc.do" method="post" id="gauthLoginState" style='display:none' value="Logout">
+	    	<input type="hidden" name="user_email" />
+	    	<input type="hidden" name="user_pw" />
+	    </form>
+    
 
     <div id="no-mobile">
         <span>Your screen is too big</span>
-      </div>
+    </div>
 <script src="/js/ryan-script.js"></script>
 <script src="/js/jquery-3.4.1.min.js"></script>
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 </html>
