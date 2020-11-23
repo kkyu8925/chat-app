@@ -37,6 +37,7 @@
 			  			var form = document.createElement('form');
 				        form.setAttribute('method', 'post'); 
 				        form.setAttribute('action', '/user/usergauthProc.do');
+				        form.setAttribute('style', 'display:none;');
 				        //params
 				        var params = {'user_email': profile.getEmail(),
 					                'user_pw': 'gauthUser',
@@ -125,7 +126,7 @@
         </div>
     </form>
     
-    	<form action="/user/usergauthLoginProc.do" method="post" id="gauthLoginState" style='background-color: #3D516B;display:none;' value="Logout">
+    	<form action="/user/usergauthLoginProc.do" method="post" id="gauthLoginState" style='display:none;' value="Logout">
 	    	<input type="hidden" name="user_email" />
 	    	<input type="hidden" name="user_pw" />
 	    </form>
