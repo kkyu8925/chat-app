@@ -17,14 +17,19 @@ public interface IUserService {
 	
 	// 회원가입하기(회원정보 등록)
 	int insertUserInfo(UserDTO pDTO) throws Exception;
-
+	
+	// 이메일 중복확인 ajax
 	UserDTO emailCheckForAjax(UserDTO pDTO) throws Exception;
-
+	
+	// 비밀번호 찾기
 	int findPasswordProc(UserDTO pDTO) throws Exception;
-
+	
+	// 유정번호로 유저정보 찾기
 	UserDTO getUserInfoforNo(UserDTO pDTO) throws Exception;
-
+	
+	// 비밀번호 변경
 	int chgPWProc(UserDTO pDTO) throws Exception;
-
+	
+	// 이름 변경
 	int chgNameProc(UserDTO pDTO) throws Exception;	
 }

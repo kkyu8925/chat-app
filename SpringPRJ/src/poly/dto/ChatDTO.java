@@ -2,11 +2,11 @@ package poly.dto;
 
 public class ChatDTO {
 
-	private String roomKey = "";
-	private String user_name = "";
-	private String user_no = "";
-	private String msg = "";
-	private String dateTime = "";
+	private String roomKey = ""; // 방번호
+	private String user_name = ""; // 유저이름 
+	private String user_no = ""; // 유저번호
+	private String msg = ""; // 메세지
+	private String dateTime = ""; // 전송시간
 	private String type = ""; // admin / user / who
 
 	public String getUser_no() {

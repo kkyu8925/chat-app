@@ -1,9 +1,9 @@
 package poly.dto;
 
 public class MailDTO {
-	private String toMail;
-	private String title;
-	private String contents;
+	private String toMail; // 받는사람
+	private String title; // 메일 제목
+	private String contents; // 메일 내용
 
 	public String getToMail() {
 		return toMail;

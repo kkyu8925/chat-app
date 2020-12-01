@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- JAVA와 연결할 Mapper 파일 설정 -->
 <mapper namespace="poly.persistance.mapper.IUserMapper">
+	<!-- 회원 정보 가져오기 -->
 	<select id="getUserInfo" parameterType="UserDTO" resultType="UserDTO">
 		SELECT
 		USER_NAME,
@@ -12,6 +13,7 @@
 		USER_EMAIL=#{user_email} AND USER_PW=#{user_pw}
 	</select>
 	
+	<!-- 유저번호로 회원정보 가져오기 -->
 	<select id="getUserInfoforNo" parameterType="UserDTO" resultType="UserDTO">
 		SELECT
 		USER_NAME,
@@ -40,7 +42,7 @@
 		)
 	</insert>
 
-	<!-- 이메일로 회원가입 중복 방지 -->
+	<!-- 유저 존재 여부 확인 -->
 	<select id="getUserExists" parameterType="UserDTO"
 		resultType="UserDTO">
 		SELECT IF(COUNT(1)=0,'N','Y') AS EXISTS_YN
@@ -50,7 +52,7 @@
 		USER_EMAIL=#{user_email}
 	</select>
 	
-	<!-- ajax -->
+	<!-- ajax 유저리스트 가져오기 -->
 	<select id="getUserList" resultType="UserDTO">
 		SELECT
 		USER_NAME
@@ -60,7 +62,7 @@
 		USER_NAME
 	</select>
 	
-	<!-- ajax -->
+	<!-- ajax 서칭 유저리스트 가져오기-->
 	<select id="getSearchList" parameterType="UserDTO" resultType="UserDTO">
 	 	SELECT
 	 	USER_NAME
@@ -72,7 +74,7 @@
 		USER_NAME
 	</select>
 	
-	<!-- ajax -->
+	<!-- ajax 이메일 중복 확인 -->
 	<select id="emailCheckForAjax" parameterType="UserDTO" resultType="UserDTO">
 		SELECT
 		USER_EMAIL
@@ -92,7 +94,7 @@
 	USER_EMAIL=#{user_email} 
 	</update>
 	
-		<!-- 비밀번호 찾기 변경시 이메일 이름 확인 -->
+	<!-- 비밀번호 찾기 변경시 이메일 이름 확인 -->
 	<select id="getUserExists2" parameterType="UserDTO"	resultType="UserDTO">
 		SELECT IF(COUNT(1)=0,'N','Y') AS EXISTS_YN
 		FROM
@@ -100,6 +102,7 @@
 		WHERE USER_EMAIL=#{user_email} AND USER_NAME=#{user_name}
 	</select>
 	
+	<!-- 유저 이름 변경 -->
 	<update id="chgNameProc" parameterType="UserDTO">
 		UPDATE user
 		SET USER_NAME =#{user_name},
@@ -107,6 +110,7 @@
 		WHERE user_no =#{user_no};
 	</update>
 	
+	<!-- 유저 비밀번호 변경 -->
 	<update id="chgPWProc" parameterType="UserDTO">
 		UPDATE user
 		SET user_pw =#{user_pw}
