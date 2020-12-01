@@ -45,17 +45,18 @@ public class UserController {
 		
 		String msg = "gauth 실패.";
 		String url ="/";
+		
 		UserDTO pDTO = null;
 		UserDTO rDTO;
 		
 		try {
 			//가져오기
-			String user_email = CmmUtil.nvl(request.getParameter("user_email"));
-			String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
-			String user_id = CmmUtil.nvl(request.getParameter("user_id"));
-			String user_name = CmmUtil.nvl(request.getParameter("user_name"));
-			String user_Image = CmmUtil.nvl(request.getParameter("user_Image"));
-			String user_isGUser = CmmUtil.nvl(request.getParameter("user_isGUser"));
+			String user_email = CmmUtil.nvl(request.getParameter("user_email")); // 이메일
+			String user_pw = CmmUtil.nvl(request.getParameter("user_pw")); // 비밀번호
+			String user_id = CmmUtil.nvl(request.getParameter("user_id")); // 아이디
+			String user_name = CmmUtil.nvl(request.getParameter("user_name")); // 이름
+			String user_Image = CmmUtil.nvl(request.getParameter("user_Image")); // 이미지 
+			String user_isGUser = CmmUtil.nvl(request.getParameter("user_isGUser")); // Oauth 
 			
 			log.info("user_name : " +user_name);
 			log.info("user_email : " +user_email);
@@ -71,21 +72,30 @@ public class UserController {
 			//서버에 저장 (gauth 사용시 권장되지 않음)
 			int res = userService.insertUserInfo(pDTO); //서비스에서 중복 거르므로 if문 작성 안함
 			msg="gauth 가입 성공!";
+			
 			//유저 조회
 			rDTO = userService.getUserInfo(pDTO);
 			
 			if (rDTO != null) { // 로그인 성공(일반 로그인 가능하므로, DTO에 isgauth 속성 넣을 것 -> getuser_isgauth로 조회)
-				session.setAttribute("SS_USER_NAME", rDTO.getUser_name());
+				session.setAttribute("SS_USER_NAME", rDTO.getUser_name()); 
 				session.setAttribute("SS_USER_NO", rDTO.getUser_no());
+				
+				// 결과 메세지 전달하기
 				msg="gauth 로그인 성공";
 				url="/friends.do";
 			}
+			
 		} catch (Exception e) {
+			
 			log.info(e.toString());
 			e.printStackTrace();
 			msg="로그인 실패 - 시스템 에러";
+			
 		} finally {
+			
 			log.info(this.getClass().getName() + ".user/usergauthProc.do 끝!");
+			
+			// 결과 메세지 전달하기
 			model.addAttribute("url", url);
 			model.addAttribute("msg", msg);
 			model.addAttribute("pDTO", pDTO);
@@ -103,18 +113,18 @@ public class UserController {
 
 		log.info(this.getClass().getName() + ".user/userLoginProc.do start");
 
-
 		// 웹(회원정보 입력화면)으로 부터 받은 정보를 저장할 변수
 		UserDTO pDTO = null;
 		
 		String msg = "로그인 실패 - 아이디와 비밀번호를 확인해주세요.";
 		String url ="/";
+		
 		UserDTO rDTO;
 
 		try {
 			
-			String user_email = CmmUtil.nvl(request.getParameter("user_email"));
-			String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
+			String user_email = CmmUtil.nvl(request.getParameter("user_email")); // 이메일
+			String user_pw = CmmUtil.nvl(request.getParameter("user_pw")); // 비밀번호
 
 			log.info("user_email : " +user_email);
 			log.info("user_pw : " + user_pw);
@@ -132,8 +142,11 @@ public class UserController {
 			rDTO = userService.getUserInfo(pDTO); 
 
 			if (rDTO != null) { // 로그인 성공
-				session.setAttribute("SS_USER_NAME", rDTO.getUser_name());
-				session.setAttribute("SS_USER_NO", rDTO.getUser_no());
+				
+				session.setAttribute("SS_USER_NAME", rDTO.getUser_name()); // SS 유저이름
+				session.setAttribute("SS_USER_NO", rDTO.getUser_no()); // SS 유저 번호
+				
+				// 결과 메세지 전달하기
 				msg="로그인 성공";
 				url="/friends.do";
 			}
@@ -149,12 +162,14 @@ public class UserController {
 			
 			log.info(this.getClass().getName() + ".user/userLoginProc.do end");
 			
+			// 결과 메세지 전달하기
 			model.addAttribute("url", url);
 			model.addAttribute("msg", msg);
 
 			// 변수 초기화
 			pDTO = null;
 		}
+		
 		return "/redirect";
 	}
 	
@@ -176,8 +191,9 @@ public class UserController {
 	public List<UserDTO> getUserList(HttpServletRequest request) throws Exception {
 
 		log.info(this.getClass().getName() + "./user/getUserList start");
-
-		List<UserDTO> rList = userService.getUserList();
+		
+		// 유저 리스트 가져오기
+		List<UserDTO> rList = userService.getUserList(); 
 		log.info("rList size : " + rList.size());
 
 		log.info(this.getClass().getName() + ".user/getUserList end");
@@ -192,12 +208,14 @@ public class UserController {
 	public List<UserDTO> getSearchList(HttpServletRequest request) throws Exception{
 		
 		log.info(this.getClass().getName() + ".user/getSearchList start");
-		String user_name =CmmUtil.nvl(request.getParameter("name"));
+		
+		String user_name =CmmUtil.nvl(request.getParameter("name")); // 이름
 		log.info("user_name : " +user_name);
 		
-		UserDTO uDTO =new UserDTO();
+		UserDTO uDTO = new UserDTO();
 		uDTO.setUser_name(user_name);
 		
+		// 서칭 유저리스트 가져오기
 		List<UserDTO> uList = userService.getSearchList(uDTO);
 		log.info("uList size :"+uList.size());
 		
@@ -213,7 +231,8 @@ public class UserController {
 	public String emailCheckForAjax(HttpServletRequest request) throws Exception{
 		
 		log.info(this.getClass().getName() + ".emailCheckForAjax start");
-		String user_email =CmmUtil.nvl(request.getParameter("user_email"));
+		
+		String user_email =CmmUtil.nvl(request.getParameter("user_email")); // 이메일
 		log.info("user_email : " +user_email);
 		
 		UserDTO pDTO =new UserDTO();
@@ -222,6 +241,7 @@ public class UserController {
 		// 민감 정보인 이메일은 AES128-CBC로 암호화함
 		pDTO.setUser_email(EncryptUtil.encAES128CBC(user_email));
 		
+		// 이메일 중복 확인
 		UserDTO rDTO = userService.emailCheckForAjax(pDTO);
 		
 		if(rDTO == null) {
@@ -244,7 +264,8 @@ public class UserController {
 		// session을 비움
 		session.removeAttribute("SS_USER_NAME");
 		session.removeAttribute("SS_USER_NO");
-
+		
+		// 결과 메세지 전달하기
 		model.addAttribute("msg", "로그아웃 성공");
 		model.addAttribute("url", "/");
 
@@ -312,9 +333,10 @@ public class UserController {
 			model.addAttribute("msg", msg);
 			model.addAttribute("url", "/");
 
-			// 웹(회원정보 입력화면)으로부터 입력받은 데이터 전달하기
+			// 데이터 전달하기
 			model.addAttribute("pDTO", pDTO);
-
+			
+			// 변수 초기화
 			pDTO = null;
 		}
 		return "/redirect";
