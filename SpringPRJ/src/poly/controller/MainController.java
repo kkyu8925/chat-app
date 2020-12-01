@@ -26,6 +26,7 @@ public class MainController {
 	
 	@RequestMapping(value="index")
 	public String Index(HttpSession session) throws Exception {
+		
 		log.info(this.getClass());
 		
 		return "/index";
@@ -33,6 +34,7 @@ public class MainController {
 	
 	@RequestMapping(value="friends")
 	public String friends(ModelMap model) throws Exception {
+		
 		log.info(this.getClass().getName()+".frieends start");
 		
 		// 리스트 가져오기
@@ -43,8 +45,10 @@ public class MainController {
 			rList = new ArrayList<UserDTO>(); 
 		}
 		
+		// 데이터 전달하기
 		model.addAttribute("rList",rList);
 		
+		// 초기화
 		rList =null;
 		
 		log.info(this.getClass().getName()+".friedns end");
@@ -54,6 +58,7 @@ public class MainController {
 	
 	@RequestMapping(value="settings")
 	public String settings() throws Exception {
+		
 		log.info(this.getClass());
 		
 		return "/settings";
@@ -61,6 +66,7 @@ public class MainController {
 
 	@RequestMapping(value="find")
 	public String find() throws Exception {
+		
 		log.info(this.getClass());
 		
 		return "/find";
@@ -69,6 +75,7 @@ public class MainController {
 	/* 제작 이준우  공지사항 게시판 리스트 불러오기*/
 	@RequestMapping(value="notice")
 	public String notice() throws Exception {
+		
 		log.info(this.getClass());
 		
 		
@@ -97,12 +104,14 @@ public class MainController {
 		UserDTO pDTO = new UserDTO();
 		pDTO.setUser_no(user_no);
 		
+		// 유저번호로 유저정보 가져오기
 		UserDTO rDTO = userService.getUserInfoforNo(pDTO);
 		
 		if(rDTO == null) {
 			rDTO = new UserDTO();
 		}
 		
+		// 데이터 전달하기
 		model.addAttribute("rDTO",rDTO);
 		
 		log.info(this.getClass().getName() + ".user/account end");
