@@ -27,7 +27,8 @@
     		padding-top: 115px;
     	}
     	.friends-screen__channel:last-child{
-    		margin-bottom:80px;
+    		margin-bottom: 80px;
+   			padding-bottom: 80px;
     	}
     	/* 화면 조절 css end */
     	
