@@ -342,6 +342,14 @@ public class UserController {
 		return "/redirect";
 	}
 	
+	/**
+	 * 비밀번호 찾기 
+	 * 
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="user/findPasswordProc", method = RequestMethod.POST)
 	public String findPasswordProc(HttpServletRequest request, ModelMap model) throws Exception {
 		
@@ -397,6 +405,15 @@ public class UserController {
 		return "/redirect";
 	}
 	
+	/**
+	 * 유저 이름 변경
+	 * 
+	 * @param session
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "user/chgNameProc.do",method = RequestMethod.POST)
 	public String chgNameProc(HttpSession session, HttpServletRequest request, ModelMap model) throws Exception {
 		log.info(this.getClass().getName() + ".user/chgNameProc start");
@@ -430,6 +447,15 @@ public class UserController {
 		return "/redirect";
 	}
 	
+	/**
+	 * 유저 비밀번호 변경
+	 * 
+	 * @param session
+	 * @param request
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value = "user/chgPWProc.do",method = RequestMethod.POST)
 	public String chgPWProc(HttpSession session, HttpServletRequest request, ModelMap model) throws Exception {
 		log.info(this.getClass().getName() + ".user/chgPWProc start");
