@@ -19,11 +19,20 @@ import poly.util.CmmUtil;
 @Controller
 public class MainController {
 	
+	// 로그 파일 생성 및 로그 출력을 위한 log4j 프레임워크의 자바 객체
 	private Logger log = Logger.getLogger(this.getClass());
 	
+	// 비즈니스 로직(중요 로직을 수행하기 위해 사용되는 서비스를 메모리에 적재(싱글톤패턴 적용됨) static 선언 방식 기반의 싱글톤패턴
 	@Resource(name="UserService")
 	private IUserService userService;
 	
+	/**
+	 * 로그인 페이지 
+	 * 
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="index")
 	public String Index(HttpSession session) throws Exception {
 		
@@ -32,6 +41,13 @@ public class MainController {
 		return "/index";
 	}
 	
+	/**
+	 * 친구 목록 페이지
+	 * 
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="friends")
 	public String friends(ModelMap model) throws Exception {
 		
@@ -56,20 +72,18 @@ public class MainController {
 		return "/friends";
 	}
 	
+	/**
+	 * 설정 페이지
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="settings")
 	public String settings() throws Exception {
 		
 		log.info(this.getClass());
 		
 		return "/settings";
-	}
-
-	@RequestMapping(value="find")
-	public String find() throws Exception {
-		
-		log.info(this.getClass());
-		
-		return "/find";
 	}
 	
 	/* 제작 이준우  공지사항 게시판 리스트 불러오기*/
@@ -82,6 +96,12 @@ public class MainController {
 		return "/notice";
 	}
 	
+	/**
+	 * 비밀번호 찾기
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="findPW")
 	public String findPW() throws Exception {
 		log.info(this.getClass());
@@ -91,6 +111,7 @@ public class MainController {
 	
 	/**
 	 * 개인 정보 페이지
+	 * 
 	 * @return
 	 * @throws Exception
 	 */
@@ -119,6 +140,12 @@ public class MainController {
 		return "/user/account";
 	}
 	
+	/**
+	 * 이름 변경 페이지
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="user/chgName")
 	public String chgName() throws Exception {
 		log.info(this.getClass());
@@ -126,13 +153,12 @@ public class MainController {
 		return "/user/chgName";
 	}
 	
-	@RequestMapping(value="user/chgEmail")
-	public String chgEmail() throws Exception {
-		log.info(this.getClass());
-		
-		return "/user/chgEmail";
-	}
-	
+	/**
+	 * 비밀번호 변경 페이지
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="user/chgPW")
 	public String chgPW() throws Exception {
 		log.info(this.getClass());
@@ -140,6 +166,12 @@ public class MainController {
 		return "/user/chgPW";
 	}
 	
+	/**
+	 * 채팅방 페이지 
+	 * 
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping(value="chats")
 	public String chats() throws Exception {
 		log.info(this.getClass());
