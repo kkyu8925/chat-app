@@ -5,7 +5,7 @@
 
   - 개발환경 : Eclipse
   - 개발 언어 : Java
-  - 개발 기술 : JavaScript , Jsp , Ajax , Spring MVC, Aws
+  - 개발 기술 : JavaScript , Jsp , Ajax , Spring MVC, Aws, Docker
   - DB : MariaDB, Redis
   
 ## 설명  
