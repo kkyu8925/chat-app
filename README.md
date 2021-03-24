@@ -19,5 +19,6 @@ Redis를 활용한 채팅프로그램
 Aws Route53을 통해 도메인 주소를 라우팅하였다.
 
 ### 시연영상 URL
-> https://youtu.be/32nwd7ggvUk
+> [![](https://i.ytimg.com/vi/byTrpJJPjNo/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBcRHXMkvEdoZIWLXNBhRXRNf5KzA)](https://youtu.be/32nwd7ggvUk "demo")
+
 
