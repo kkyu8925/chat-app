@@ -4,7 +4,7 @@
 ## 개발 스텍  
 
   - 개발환경 : Eclipse
-  - 프레임워크 : Spring
+  - 프레임워크 : Spring 4.3.7
   - 개발 언어 : Java
   - 개발 기술 : JavaScript , Ajax , Aws ec2, Aws RDS, Aws Route53, Docker
   - DB : MariaDB, Redis
