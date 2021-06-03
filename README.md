@@ -1,7 +1,7 @@
 # ChatPRJ
 - Redis를 활용한 채팅 애플리케이션
 
-### 개발일자 : 2020-10-08 ~ 2020-11-23    
+### 진행 기간 : 2020-10-08 ~ 2020-11-23    
 
 ## 사용 기술
   - Eclipse - IDE
@@ -18,6 +18,14 @@
 - 채팅방, 채팅 데이터는 In-Memory 데이터베이스인 Redis를 활용했습니다. 
 - AWS EC2의 linux2 기반의 Docker 환경에서 실행하며 AWS RDS의 MariaDB를 사용했습니다. 
 - AWS Route 53을 통해 도메인 주소를 라우팅했습니다. 
+
+## 담당한 기능
+- HTML, CSS, JavaScript를 사용해 Front 개발
+- Redis, Docker 프로젝트 환경 구성
+- Redis를 활용해 채팅 기능 구현
+- 회원가입, 로그인 기능 구현
+- AWS 인프라 구성, 배포, 운영
+- MariaDB, Redis 구조 설계, 운영
 
 ### 시연영상 URL
 > https://youtu.be/32nwd7ggvUk
